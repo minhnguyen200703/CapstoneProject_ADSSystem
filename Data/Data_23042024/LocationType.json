@@ -1,0 +1,34 @@
+{
+  "RECORDS": [
+    {
+      "_id": "60b742121b487250e7bf8962",
+      "Code": "kho",
+      "Name": "Kho Hàng (Warehouse)",
+      "CompanyId": "60efb629c70d7949acaa9246"
+    },
+    {
+      "_id": "60c30fd3cc1104093ffc5b0b",
+      "Code": "kho_vat_tu",
+      "Name": "Kho vật tư",
+      "CompanyId": "60efb629c70d7949acaa9246"
+    },
+    {
+      "_id": "60af19fbd75935b97ea79454",
+      "Code": "cang",
+      "Name": "Cảng (Port)",
+      "CompanyId": "60efb629c70d7949acaa9246"
+    },
+    {
+      "_id": "65d6ac8e2f4f317d5c7d99f9",
+      "Code": "depot",
+      "Name": "DEPOT",
+      "CompanyId": "60efb629c70d7949acaa9246"
+    },
+    {
+      "_id": "660e3de5c91888c1ca2ae2ec",
+      "Code": "cửa khẩu",
+      "Name": "Cửa Khẩu",
+      "CompanyId": "60efb629c70d7949acaa9246"
+    }
+  ]
+}

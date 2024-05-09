@@ -1,0 +1,142 @@
+[
+    {
+        "CarID": "CAR001",
+        "ListDriverCode": ["DRIVER001", "ASSIST001"],
+        "CurrentLocationCode": "LOC006",
+        "BeforeLocationCode": "LOC005",
+        "Conts": {"ContId": "CONT001", "Status": "Loaded"}
+    },
+    {
+        "CarID": "CAR002",
+        "ListDriverCode": ["DRIVER002", "ASSIST002"],
+        "CurrentLocationCode": "LOC006",
+        "BeforeLocationCode": "LOC004",
+        "Conts": null
+    },
+    {
+        "CarID": "CAR003",
+        "ListDriverCode": ["DRIVER003", "ASSIST003"],
+        "CurrentLocationCode": "LOC006",
+        "BeforeLocationCode": "LOC003",
+        "Conts": {"ContId": "CONT003", "Status": "Empty"}
+    },
+    {
+        "CarID": "CAR004",
+        "ListDriverCode": ["DRIVER004", "ASSIST004"],
+        "CurrentLocationCode": "LOC006",
+        "BeforeLocationCode": "LOC002",
+        "Conts": {"ContId": "CONT004", "Status": "Loaded"}
+    },
+    {
+        "CarID": "CAR005",
+        "ListDriverCode": ["DRIVER005", "ASSIST005"],
+        "CurrentLocationCode": "LOC006",
+        "BeforeLocationCode": "LOC001",
+        "Conts": null
+    },
+    {
+        "CarID": "CAR006",
+        "ListDriverCode": ["DRIVER006", "ASSIST006"],
+        "CurrentLocationCode": "LOC006",
+        "BeforeLocationCode": "LOC005",
+        "Conts": {"ContId": "CONT006", "Status": "Empty"}
+    },
+    {
+        "CarID": "CAR007",
+        "ListDriverCode": ["DRIVER007", "ASSIST007"],
+        "CurrentLocationCode": "LOC006",
+        "BeforeLocationCode": "LOC004",
+        "Conts": null
+    },
+    {
+        "CarID": "CAR008",
+        "ListDriverCode": ["DRIVER008", "ASSIST008"],
+        "CurrentLocationCode": "LOC006",
+        "BeforeLocationCode": "LOC003",
+        "Conts": {"ContId": "CONT008", "Status": "Loaded"}
+    },
+    {
+        "CarID": "CAR009",
+        "ListDriverCode": ["DRIVER009", "ASSIST009"],
+        "CurrentLocationCode": "LOC006",
+        "BeforeLocationCode": "LOC002",
+        "Conts": null
+    },
+    {
+        "CarID": "CAR010",
+        "ListDriverCode": ["DRIVER010", "ASSIST010"],
+        "CurrentLocationCode": "LOC006",
+        "BeforeLocationCode": "LOC001",
+        "Conts": {"ContId": "CONT010", "Status": "Empty"}
+    },
+    {
+        "CarID": "CAR011",
+        "ListDriverCode": ["DRIVER011", "ASSIST011"],
+        "CurrentLocationCode": "LOC006",
+        "BeforeLocationCode": "LOC005",
+        "Conts": null
+    },
+    {
+        "CarID": "CAR012",
+        "ListDriverCode": ["DRIVER012", "ASSIST012"],
+        "CurrentLocationCode": "LOC006",
+        "BeforeLocationCode": "LOC004",
+        "Conts": {"ContId": "CONT012", "Status": "Loaded"}
+    },
+    {
+        "CarID": "CAR013",
+        "ListDriverCode": ["DRIVER013", "ASSIST013"],
+        "CurrentLocationCode": "LOC006",
+        "BeforeLocationCode": "LOC003",
+        "Conts": null
+    },
+    {
+        "CarID": "CAR014",
+        "ListDriverCode": ["DRIVER014", "ASSIST014"],
+        "CurrentLocationCode": "LOC006",
+        "BeforeLocationCode": "LOC002",
+        "Conts": {"ContId": "CONT014", "Status": "Empty"}
+    },
+    {
+        "CarID": "CAR015",
+        "ListDriverCode": ["DRIVER015", "ASSIST015"],
+        "CurrentLocationCode": "LOC006",
+        "BeforeLocationCode": "LOC001",
+        "Conts": null
+    },
+    {
+        "CarID": "CAR016",
+        "ListDriverCode": ["DRIVER016", "ASSIST016"],
+        "CurrentLocationCode": "LOC006",
+        "BeforeLocationCode": "LOC005",
+        "Conts": {"ContId": "CONT016", "Status": "Loaded"}
+    },
+    {
+        "CarID": "CAR017",
+        "ListDriverCode": ["DRIVER017", "ASSIST017"],
+        "CurrentLocationCode": "LOC006",
+        "BeforeLocationCode": "LOC004",
+        "Conts": null
+    },
+    {
+        "CarID": "CAR018",
+        "ListDriverCode": ["DRIVER018", "ASSIST018"],
+        "CurrentLocationCode": "LOC006",
+        "BeforeLocationCode": "LOC003",
+        "Conts": {"ContId": "CONT018", "Status": "Empty"}
+    },
+    {
+        "CarID": "CAR019",
+        "ListDriverCode": ["DRIVER019", "ASSIST019"],
+        "CurrentLocationCode": "LOC006",
+        "BeforeLocationCode": "LOC002",
+        "Conts": null
+    },
+    {
+        "CarID": "CAR020",
+        "ListDriverCode": ["DRIVER020", "ASSIST020"],
+        "CurrentLocationCode": "LOC006",
+        "BeforeLocationCode": "LOC001",
+        "Conts": {"ContId": "CONT020", "Status": "Loaded"}
+    }
+]

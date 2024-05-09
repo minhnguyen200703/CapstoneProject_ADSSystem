@@ -1,0 +1,169 @@
+API
+https://tmsapi.unilogistics.vn/swagger/index.html
+	=> Trong trang này, kéo xuống dưới cùng, có schemas của Model đàng sử dụng nhé.
+	
+MÔ TẢ CÁC TRƯỜNG THÔNG TIN
+	* Thông Tin Chung:
+		_id: ObjectId mà Mongo Db tự sinh 
+		CompanyId: ObjectId công ty ( chỉ xét 1 công ty là U&I )
+		VendorId: ObjectId nhà xe ( mỗi một xe thuộc về 1 nhà xe vendor. Chỉ xét 1 nhà xe Unitrans )
+		Code: Mã đối tượng. Vd mã địa điểm, mã đơn hàng, mã romooc...
+		Name: Tên đối tượng. Vd tên xe, tên công việc...      
+		
+	* Assign: Lệnh Điều Xe
+		Code: String - Mã lệnh điều xe: Số xe + ngày điều xe
+		CarId: ObjectId của xe
+		DriverId: ObjectId của tài xế
+		Up: Int Số lần nâng trong lệnh điều
+		Down: Int Số lần hạ trong lệnh điều
+		Transfer: Số lần chuyển kho trong lệnh điều ( ko cần quan tâm chỗ này nha )
+		AssignDate: DateTime Ngày điều xe
+		Status: Int Trạng thái của lệnh điều ( 9 là Completed )
+		ArrTaskJobId: Array danh sách Id của công việc, xếp đúng thứ tự và làm lần lượt
+		
+	* Car: Danh Mục Xe
+		ListDriverCode: Array gồm tài xế và phụ lái. Quy định index 0 là tài xế và index 1 là phụ xe
+		CurrentLocationCode: ObjectId địa điểm hiện tại
+		BeforeLocationCode: ObjectId địa điểm trước đó
+		RomoocId: ObjectId nếu xe đang có gắn romooc. Ngược là null/emtyString nếu ko gắn romooc
+		MoocConts: ObjectClass giúp biết thông tin cơ bản như có gắn Cont hay ko ? Có thì gắn Cont nào và tình trạng của Cont ( rỗng hay có hàng )
+		
+	* ContType: Danh Mục Loại Cont 
+	* Driver: Danh Mục Tài Xế
+	* Distance: Danh Mục Cự Ly ( Giữa các địa điểm ). Chú ý là A -> B và B -> A là khác nhau
+		DistanceKm: Decimal Khoảng cách Kilomet
+		Loss: Decimal Hao hụt Kilomet
+		ListFromToCode: Array 2 điểm khoảng cách
+		LocationFromCode: ObjectId của điểm bắt đầu
+		LocationFromName: String tên của điểm bắt đầu
+		LocationToCode: ObjectId của điểm kết thúc
+		LocationToName: String tên của điểm kết thúc
+		
+	* LocationType: Danh Mục Loại Địa Điểm
+	* Location: Danh Mục Địa Điểm
+		GEO: GeoJSON Object (Mongo) Tọa độ
+		TypeLocationCode: ObjectId loại địa điểm
+		
+	* Romooc: Danh Mục Romooc
+		TypeRomooc: String Chủng loại Romooc
+		TypeContCode: String Loại hình ( giúp biết chở đc loại hình Cont nào )
+		Loads: Decimal Tải trọng có thể kéo đc Cont
+		Weight: Decimal Cân nặng của romooc
+		MoocConts: Thông tin Cont đang nằm trên mooc
+		CarCode: Mooc có đang gắn xe ko ? Có thì lưu biển số xe
+		
+	* Order: Đơn Hàng. CHIA LÀM 2: BOOKING ( HÀNG XUẤT ) & HÀNG NHẬP ( BILL ). 
+		Code: String Mã đơn hàng
+		OrderType: String Loại đơn hàng
+		CustomerCode: ObjectId khách hàng ( ko quan trọng )
+		CompleteDate: DateTime ngày đơn hàng hoàn thành ( ko quan trọng )
+		ArrIdCont: Array mảng các ContId của đơn hàng
+		ArrLocationReciptCode: Array mảng địa điểm, nơi giao nhận. Quy định index 0 là điểm lấy, index 1 là điểm giao
+		
+		+ BOOKING:
+			Book_ETA: DateTime ngày tàu chạy dự kiến ( ko quan trọng )
+			Book_ATA: DateTime ngày tàu chạy ( ko quan trọng )
+			ShippingLineCode: ObjectId mã hãng tàu ( ko quan trọng )
+			Book_PortOfDischargeCode: Cảng Đến ( ko quan trọng )
+			CargoTypeCode: ObjectId loại hàng hóa ( ko quan trọng )
+			
+			Book_SIDateTime DateTime ngày giờ cắt SI
+			Book_LiftingEmptyContRequestDate: DateTime ngày yêu cầu lấy rỗng
+			Book_CutOffDateTime: DateTime ngày giờ cắt máng
+			OrderFiles: File booking khách hàng gửi 
+			
+		+ BILL
+			Bill_ETD: DateTime ngày tàu đến dự kiến ( ko quan trọng )
+			Book_ATD: DateTime ngày tàu đến ( ko quan trọng )
+			Bill_LastFreeDayDEM: DateTime ngày hết hạn lưu cont
+			Bill_LastFreeDayDET: DateTime ngày hết hạn trả rỗng
+			
+	* Cont: Danh Sách Cont
+		OrderId: ObjectId của đơn hàng
+		OrderType: String Loại đơn hàng
+		ContNumber: String số Container
+		ContFiles: Array hình ảnh mà tài xế chụp trong lúc làm việc với Cont
+		Note..: String Ghi chú của điều vận khi thao tác bảng trắng
+		CargoWeight: Decimal Tải trọng của Cont ( Ko nhập, nên không có )
+		IsCargo: Boolean trạng thái cont rỗng hay cont hàng
+		RmoocId: ObjectId đang gắn Cont
+		Trace: String ghi vết xe thực hiện nâng - hạ của Cont
+		IsDown: Boolean trạng thái Cont có thể hạ
+		
+		ArrLocationReciptCodeOrder: Array nơi giao nhận, điểm đầu điểm cuối lấy trong đơn hàng ra. Giá trị này là luôn lấy theo đơn hàng     
+		LocationOfDeliveryName: Nơi giao cont ( Book là cảng hạ hàng xuất, Bill là kho rút hàng ra )
+		LocationOfReciptName: Nơi lấy cont ( Book là kho đóng hàng vào Cont rỗng, Bill là cảng lấy hàng nhập )
+		=> 2 field này là name của ArrLocationReciptCodeOrder
+		
+		ArrLocationReciptCode: Nếu không có gì thay đổi, thì nó sẽ luôn bằng ArrLocationReciptCodeOrder, nhưng mảng này sẽ ghi nhận quá trình điều vận điều xe, vd như giao không đúng nơi.. ( Field này để check, tham chiếu thôi )
+		 
+		ArrLocationDepotCode: Array điểm lấy rỗng, trả rỗng KẾ HOẠCH. Quy định index = 0 là lấy rỗng bookinh và index = 1 là trả rỗng bill 
+		ArrLocationDepotReallyCode: Array điểm lấy rỗng, trả rỗng THỰC TẾ, khi tài xế hoàn thành công việc trên APP Mobile. Quy định index = 0 là lấy rỗng bookinh và index = 1 là trả rỗng bill 
+		
+
+		ArrTaskId: Array danh sách công việc CHÍNH của Cont
+		
+		OrderNumber: Int thứ tự của cont theo loại cont
+		QuantityCont: Int Tổng số cont theo loại
+		TypeCont: ObjectId loại cont
+		
+		/////////////////////////////////////////////////////////
+		Vd: 1 Book mã ABC có 5 cont, trong đó 2 Cont 45 và 3 Cont 40, thì danh sách sẽ là
+			Loại Cont 45 có QuantityCont = 2
+				-> OrderNumber: 1 ( Cont số 1 của 45 ) => Cách viết ABC/1/45
+				-> OrderNumber: 2 ( Cont số 2 của 45 ) => Cách viết ABC/2/45
+			Loại Cont 40 có QuantityCont = 3
+				-> OrderNumber: 1 ( Cont số 1 của 40 ) => Cách viết ABC/1/40
+				-> OrderNumber: 2 ( Cont số 2 của 40 ) => Cách viết ABC/2/40
+				-> OrderNumber: 3 ( Cont số 3 của 40 ) => Cách viết ABC/3/40
+		////////////////////////////////////////////////////////
+		
+		+ BOOKING
+			Book_CargoReadyDate: DateTime ngày giờ báo xuất. BookingCont mà có ngày này là đang nằm bên bảng HẠ, chờ đi hạ hàng ra cảng.
+			Book_LocationDepotFromName: Tên điểm lấy rỗng ( sau khi tài xế làm xong công việc lấy rỗng trên app, thì mới có đc Name này ).
+			Book_LiftingEmptyContAcctualDate: DateTime ngày xe lấy đc Cont rỗng tại depot
+			CutRomoocEmptyCont: DateTime ngày xe giao cont rỗng tới kho
+				-> IsDown sẽ thành true, có thể bấm để qua bảng HẠ
+			
+			PickupAcctualDate: DateTime ngày xe tới lấy Cont hàng xuất tại kho
+			ActualContainerEndDate: bình thường sẽ luôn = PickupAcctualDate ở trên!
+			DeliveryAcctualDate: DateTime ngày xe hạ hàng thành công
+			
+		+ BILL
+			Bill_EmptyContDate: DateTime ngày giờ báo rút hàng xong. BillCont mà có ngày này là đang nằm bên bảng HẠ, chờ đi trả rỗng
+			Bill_LocationDepotReturnName: Tên điểm trả rỗng ( sau khi tài xế làm xong công việc lấy rỗng trên app, thì mới có đc Name này ).
+			PickupAcctualDate: DateTime ngày xe tới lấy cont hàng nhập tại cảng
+			DeliveryAcctualDate: DateTime ngày xe giao cont hàng tới kho
+				-> IsDown sẽ thành true, có thể bấm để qua bảng HẠ
+				
+			ActualContainerEndDate: DateTime ngày xe tới lấy rỗng nhập tại kho
+			Bill_AcctualDateDET: DateTime ngày thực tế trả rỗng
+			
+			
+	* TaskJob: Công Việc. Có thê xem đây là 1 tổng hợp nhỏ của Cont và Order. Bên trong từng job, có ObjCont và ObjOrder ( nằm trong ObjCont ) ở trên. Có bổ sung thêm các trường sau
+			Kind: String Gồm 2 loại là A, B. 1 Cont sẽ gồm 4 công việc CHÍNH; trong đó A là Nâng( 2 cv ) và B là Hạ ( 2 cv ). 
+				( Nếu Kind = C là loại hình chuyển kho, ko cần quan tâm nha )
+				( Nếu Kind = String Empty thì là các cv hỗ trợ trong quá trình điều xe )
+			Sort: Int thứ tự các cv trong cặp Nâng và cặp Hạ. Vd như 1 là lấy, 2 là giao. 3 là lấy, 4 là giao
+			SortAssign: Trong cùng 1 lệnh điều xe, đánh số thứ tự giúp dễ quản lý hơn                                    
+			AssignId: ObjectId lệnh điều xe
+			CarId: ObjectId của xe làm
+			DriverId: ObjectId của tài xế làm
+			JobType: Boolean công việc CHÍNH hay phụ
+			OrderId: ObjectId id của đơn hàng
+			ContId: ObjectId id của cont
+			RomoocId: ObjectId của romooc liên quan tới công việc
+			ListBeginEndCode: Array mảng 2 phần tử điểm đầu và điểm kết thúc của cv, lấy trong danh mục địa điểm
+			Distance: Khoảng cách của điểm đầu cuối
+			OilOfQotaByCar: Định mức dầu của xe
+			
+			%plan%: String Các cột có từ plan là kế hoạch của điều vận, lưu lại. Họ luôn lên kế hoạch các công việc là lấy romooc nào, tài xế nào, xe nào và điểm lấy rỗng/trả rỗng nào
+			Tour: String kí hiệu giúp điều vận đánh số Tour cho từng xe, giúp nhận biết xe đã chay đc bao nhiêu tour trong ngày
+			Status: Int Trạng thái công việc. Các trạng thái quan trọng như sau
+				0: Khởi tạo
+				1: Điều xe giao tài xế
+				2: Tài xế chấp nhận và nhận việc
+					-> -1: Công việc đầu tiên trong lệnh điều đổi thành -1. Control đc cv nào tài xế có thể thao tác.
+				9: Hoàn thành cv
+				
+			ObjCont: Object document, chưa thông tin về Cont và Order giúp tham chiếu trong quá trình xử lý công việc
