@@ -1,0 +1,92 @@
+[
+    {"CarID": 1, 
+    "capacity": 10, 
+    "current_location": "LOC001", 
+    "conts": null
+    },
+    
+    {"CarID": 2, 
+    "capacity": 8, 
+    "current_location": "LOC001", 
+    "conts": null
+    },
+    
+    {"CarID": 3, 
+    "capacity": 12, 
+    "current_location": "LOC001", 
+    "conts": null
+    },
+    
+    {"CarID": 4, 
+    "capacity": 9, 
+    "current_location": "LOC002", 
+    "conts": null
+    },
+    
+    {"CarID": 5, 
+    "capacity": 11, 
+    "current_location": "LOC002", 
+    "conts": null
+    },
+    
+    {"CarID": 6, 
+    "capacity": 10, 
+    "current_location": "LOC003", 
+    "conts": null
+    },
+    
+    {"CarID": 7, 
+    "capacity": 8, 
+    "current_location": "LOC003", 
+    "conts": null
+    },
+    
+    {"CarID": 8, 
+    "capacity": 12, 
+    "current_location": "LOC004", 
+    "conts": null
+    },
+    
+    {"CarID": 9, 
+    "capacity": 9, 
+    "current_location": "LOC004", 
+    "conts": null
+    },
+    
+    {"CarID": 10, 
+    "capacity": 11, 
+    "current_location": "LOC005", 
+    "conts": null
+    },
+    
+    {"CarID": 11, 
+    "capacity": 10, 
+    "current_location": "LOC005", 
+    "conts": null
+    },
+    
+    {"CarID": 12, 
+    "capacity": 8, 
+    "current_location": "LOC006", 
+    "conts": null
+    },
+    
+    {"CarID": 13, 
+    "capacity": 12, 
+    "current_location": "LOC006", 
+    "conts": null
+    },
+    
+    {"CarID": 14, 
+    "capacity": 9, 
+    "current_location": "LOC006", 
+    "conts": null
+    },
+    
+    {"CarID": 15, 
+    "capacity": 11, 
+    "current_location": "LOC006", 
+    "conts": null
+    }
+
+]
