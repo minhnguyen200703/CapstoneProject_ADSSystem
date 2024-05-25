@@ -1,0 +1,43 @@
+{
+    "_id": "66015236903a59bbff15f722",
+    "Code": "ĐX_61C-337.80_25/03/2024",
+    "CompanyId": "60efb629c70d7949acaa9246",
+    "VendorId": "60efb6f10d0c19ddcb1610a7",
+    "CarId": "648605e6eb74c499b692b926", - every taskJob object must fit the carID
+    "DriverId": "648609b7eb74c499b692b9dd",
+    "ArrTaskJobId": "
+            [ 
+                \"65fd20939a33ba4a0ed4fa5f\",  - (In Task Job) - lấy hàng xuất from "Vị Trí Xe 648613e2eb74c499b692bb70 ("Bãi Xe U&I (Mới)) -> Điểm Đóng Hàng ( Kho ) 648613e2eb74c499b692bc6a(KINGSMAN)" 
+                    - in order 65fd201d9a33ba4a0ed4fa4d 
+                        This is a booking order, with deadline BOOK_ETA, BOOK_ATA, Book_CutOffDateTime
+                        this task is to solve the       "Book_ETA": "30/3/2024 05:50:07.477", finish on 25/03
+                \"65fd20939a33ba4a0ed4fa60\", 
+                    Giao Hàng Xuất - "Điểm Đóng Hàng ( Kho ) -> Điểm Giao Hàng ( Cảng ) 
+                        -in order 65fd201d9a33ba4a0ed4fa4d by cont 65fd201d9a33ba4a0ed4fa51
+                        this is the same order as above, but the next task
+                \"660135eb903a59bbff15f5d6\", 
+                    Lấy Rỗng Xuất from Vị Trí Xe -> Nơi Lấy Rỗng ( Depot ) of order 660135c1903a59bbff15f5c9
+                        this is another booking order as the điểm giao hàng from previous task near the nơi lấy rỗng Mới
+                \"660135eb903a59bbff15f5d7\" 
+                    Giao Rỗng Xuất from Nơi Lấy Rỗng -> Điểm Đóng Hàng ( Kho )
+                        from order 660135c1903a59bbff15f5c9 as above
+            ]",
+    "Log": "[ \"Đang Chờ Xác Nhận\", \"Tài Xế Nhận Việc 3/25/2024 5:30:55 PM\", \"Tài xế Hoàng Mỹ Trường bấm BẮT ĐẦU lệnh điều xe lúc 3/25/2024 6:03:36 PM\", \"Lệnh Điều Xe Tự Hoàn Thành Khi CV Cuối Hoàn Thành\" ]",
+    "Up": "1",
+    "Down": "1",
+    "Transfer": "0",
+    "AssignDate": "25/3/2024 10:29:41",
+    "Doing": "true",
+    "RequestCancelTour": "false",
+    "Transit": "false",
+    "Status": "9",
+    "IsActive": "true",
+    "CreatedBy": "ducnp",
+    "CreatedOn": "25/3/2024 10:30:14.233",
+    "UpdatedBy": "System_0978910465",
+    "UpdatedOn": "25/3/2024 13:58:11.453"
+  },
+
+
+
+  
