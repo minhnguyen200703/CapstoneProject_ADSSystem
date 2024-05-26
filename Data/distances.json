@@ -468,5 +468,55 @@
         "From": "LOC015",
         "To": "LOC_NEW",
         "DistanceKm": 204.19398956193044
+    },
+    {
+        "From": "LOC_NEW",
+        "To": "LOC024",
+        "DistanceKm": 190.6167807677952
+    },
+    {
+        "From": "LOC024",
+        "To": "LOC_NEW",
+        "DistanceKm": 190.6167807677952
+    },
+    {
+        "From": "LOC_NEW",
+        "To": "LOC027",
+        "DistanceKm": 193.16151496578837
+    },
+    {
+        "From": "LOC027",
+        "To": "LOC_NEW",
+        "DistanceKm": 193.16151496578837
+    },
+    {
+        "From": "LOC_NEW",
+        "To": "LOC021",
+        "DistanceKm": 201.24734988664449
+    },
+    {
+        "From": "LOC021",
+        "To": "LOC_NEW",
+        "DistanceKm": 201.24734988664449
+    },
+    {
+        "From": "LOC_NEW",
+        "To": "LOC013",
+        "DistanceKm": 203.9818670406868
+    },
+    {
+        "From": "LOC013",
+        "To": "LOC_NEW",
+        "DistanceKm": 203.9818670406868
+    },
+    {
+        "From": "LOC_NEW",
+        "To": "LOC015",
+        "DistanceKm": 204.19398956193044
+    },
+    {
+        "From": "LOC015",
+        "To": "LOC_NEW",
+        "DistanceKm": 204.19398956193044
     }
 ]

@@ -308,5 +308,15 @@
             104.749
         ],
         "Type": "New"
+    },
+    {
+        "LocationID": "LOC_NEW",
+        "Name": "New Location",
+        "Address": "123 New St",
+        "Coordinates": [
+            10.9877,
+            104.749
+        ],
+        "Type": "New"
     }
 ]
