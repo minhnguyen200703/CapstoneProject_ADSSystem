@@ -1,322 +1,202 @@
 [
     {
-        "LocationID": "LOC001",
-        "Name": "Cảng (Port)",
-        "Type": "Port",
-        "Address": "District 7, Ho Chi Minh City",
-        "Coordinates": {
-            "x": 10.7365,
-            "y": 106.722
-        }
-    },
-    {
-        "LocationID": "LOC002",
-        "Name": "Kho Hàng (Warehouse)",
-        "Type": "Warehouse",
-        "Address": "District 2, Ho Chi Minh City",
-        "Coordinates": {
-            "x": 10.7877,
-            "y": 106.749
-        }
-    },
-    {
-        "LocationID": "LOC003",
-        "Name": "DEPOT",
-        "Type": "Depot",
-        "Address": "District 9, Ho Chi Minh City",
-        "Coordinates": {
-            "x": 10.852,
-            "y": 106.775
-        }
-    },
-    {
-        "LocationID": "LOC004",
-        "Name": "Kho vật tư",
-        "Type": "Kho_vat_tu",
-        "Address": "Binh Thanh District, Ho Chi Minh City",
-        "Coordinates": {
-            "x": 10.8015,
-            "y": 106.707
-        }
-    },
-    {
-        "LocationID": "LOC005",
-        "Name": "Cửa Khẩu",
-        "Type": "Cua_khau",
-        "Address": "District 5, Ho Chi Minh City",
-        "Coordinates": {
-            "x": 10.7563,
-            "y": 106.667
-        }
-    },
-    {
-        "LocationID": "LOC006",
+        "LocationID": 1,
         "Name": "DEPOT A CHUAN",
-        "Type": "Depot",
+        "Type": "DEPOT",
         "Address": "Bình Chuẩn 60, Bình Chuẩn, Tp. Thủ Dầu Một, Bình Dương",
         "Coordinates": {
-            "x": 10.9835,
-            "y": 106.683
+            "x": 106.7275425,
+            "y": 10.9814486
         }
     },
     {
-        "LocationID": "LOC007",
-        "Name": "ACODE SPORTING",
-        "Type": null,
-        "Address": "VSII MỞ RỘNG",
+        "LocationID": 2,
+        "Name": "DEPOT CIMC LOGISTICS",
+        "Type": "DEPOT",
+        "Address": "1354 NGUYEN XIEN STREET, LONG BINH WARD, THU DUC CITY HO CHI MINH 13JUL3816 VIETNAM",
         "Coordinates": {
-            "x": 10.99,
-            "y": 106.66
+            "x": 10.891474,
+            "y": 106.831516
         }
     },
     {
-        "LocationID": "LOC008",
-        "Name": "ALPHA HOME",
-        "Type": null,
-        "Address": "Thửa đất số 123, 124, 125, Tờ bản đồ số 8, ấp 4 - Xã Tân Mỹ - Huyện Bắc Tân Uyên - Bình Dương",
+        "LocationID": 3,
+        "Name": "DEPOT CAT LAI 5",
+        "Type": "DEPOT",
+        "Address": "63 Đường B, Phường Thạnh Mỹ Lợi, Quận 2, Thành phố Hồ Chí Minh, Việt Nam",
         "Coordinates": {
-            "x": 11.15,
-            "y": 106.68
+            "x": 10.763046,
+            "y": 106.7346622
         }
     },
     {
-        "LocationID": "LOC009",
-        "Name": "ANAQ",
-        "Type": null,
-        "Address": "Lô 1C7, 1C8, đường CN8, Khu Công nghiệp Tân Bình, xã Hưng Hòa, huyện Bàu Bàng, tỉnh Bình Dương",
+        "LocationID": 4,
+        "Name": "DEPOT CHAN THAT - SONG THAN",
+        "Type": "DEPOT",
+        "Address": "ICD Sóng Thần, DT 743, Bình Hòa, Thuận An,Tình Bình Dương",
         "Coordinates": {
-            "x": 11.201,
-            "y": 106.765
+            "x": 10.9138474,
+            "y": 106.7379555
         }
     },
     {
-        "LocationID": "LOC010",
-        "Name": "Port Binh Duong",
-        "Type": "Port",
-        "Address": "Phu My, Binh Duong",
+        "LocationID": 5,
+        "Name": "DEPOT CHAN THAT LONG THANH MY",
+        "Type": "DEPOT",
+        "Address": "Đường số 7, Long Thạnh Mỹ, Quận 9, Thành phố Hồ Chí Minh, Việt Nam",
         "Coordinates": {
-            "x": 10.88,
-            "y": 106.808
+            "x": 10.8451124,
+            "y": 106.7996656
         }
     },
     {
-        "LocationID": "LOC011",
-        "Name": "Depot Saigon East",
-        "Type": "Depot",
-        "Address": "District 9, Ho Chi Minh City",
-        "Coordinates": {
-            "x": 10.86,
-            "y": 106.779
-        }
-    },
-    {
-        "LocationID": "LOC012",
-        "Name": "Kho Logistics City",
+        "LocationID": 6,
+        "Name": "Cheng Loong",
         "Type": "Warehouse",
-        "Address": "Thu Duc City, Ho Chi Minh City",
+        "Address": "xã An Tây, thị xã Bến Cát, tỉnh Bình Dương",
         "Coordinates": {
-            "x": 10.87,
-            "y": 106.77
+            "x": 11.1089347,
+            "y": 106.5434554
         }
     },
     {
-        "LocationID": "LOC013",
-        "Name": "Vietnam-Singapore Port",
-        "Type": "Port",
+        "LocationID": 7,
+        "Name": "KHO GEMADEPT",
+        "Type": "Warehouse",
+        "Address": "D1, AN THẠNH, THUẬN AN, BÌNH DƯƠNG",
+        "Coordinates": { 
+            "x": 10.9591251,
+            "y": 106.691274
+        }
+    },
+    {
+        "LocationID": 8,
+        "Name": "GRAND WOOD",
+        "Type": "Warehouse",
+        "Address": "Thửa đất số 36, tờ bản đồ số 18, Ấp 1, Xã Hội Nghĩa, Thị xã Tân Uyên, Tỉnh Bình Dương",
+        "Coordinates": { 
+            "x": 11.0261186,
+            "y": 106.6544494
+        }
+    },
+    {
+        "LocationID": 9,
+        "Name": "hui-cheng",
+        "Type": "Warehouse",
+        "Address": "Đ. Tân phước khánh 32, Tân Phước Khánh, Thành phố Tân Uyên, Bình Dương",
+        "Coordinates": { 
+            "x": 11.0028152,
+            "y": 106.7359759
+        }
+    },
+    {
+        "LocationID": 10,
+        "Name": "INTERWOOD",
+        "Type": "Warehouse",
+        "Address": "Phường Uyên Hưng, Thị Xã Tân Uyên, Tỉnh Bình Dương",
+        "Coordinates": {
+            "x": 11.0678682,
+            "y": 106.7662223
+        }
+    },
+    {
+        "LocationID": 11,
+        "Name": "CÔNG TY TNHH VISION INTERNATIONAL",
+        "Type": "kho_vat_tu",
+        "Address": "Số 19 Đại Lộ Hữu Nghị, KCN Việt Nam - Singapore, Phường Bình Hòa, Thành phố Thuận An, Tỉnh Bình Dương",
+        "Coordinates": { 
+            "x": 10.9245923,
+            "y": 106.7210082
+        }
+    },
+    {
+        "LocationID": 12,
+        "Name": "CÔNG TY TNHH BAO BÌ YUE YUE VIỆT NAM",
+        "Type": "kho_vat_tu",
+        "Address": "Số 55, Đường 31 Nhánh 2, Ấp Bình Cơ, Xã Bình Mỹ, Huyện Bắc Tân Uyên, Tỉnh Bình Dương, Việt Nam",
+        "Coordinates": { 
+            "x": 11.1248174,
+            "y": 106.6706805
+        }
+    },
+    {
+        "LocationID": 13,
+        "Name": "Công Ty TNHH Ngũ Kim Junlan",
+        "Type": "kho_vat_tu",
         "Address": "Binh Chanh, Ho Chi Minh City",
-        "Coordinates": {
-            "x": 10.69,
-            "y": 106.59
+        "Coordinates": { 
+            "x": 11.0549588,
+            "y": 106.6990989
         }
     },
     {
-        "LocationID": "LOC014",
-        "Name": "Customs Depot East",
-        "Type": "Depot",
-        "Address": "District 9, Ho Chi Minh City",
-        "Coordinates": {
-            "x": 10.855,
-            "y": 106.782
+        "LocationID": 14,
+        "Name": "VSIP 1",
+        "Type": "kho_vat_tu",
+        "Address": "1 VSIP Street 3, Thuận Giao, Thuận An, Bình Dương",
+        "Coordinates": { 
+            "x": 10.9380793,
+            "y": 106.7098037
         }
     },
     {
-        "LocationID": "LOC015",
-        "Name": "Binh Tan Warehouse",
+        "LocationID": 15,
+        "Name": "KCN BIÊN HÒA 2",
         "Type": "Warehouse",
-        "Address": "Binh Tan District, Ho Chi Minh City",
-        "Coordinates": {
-            "x": 10.765,
-            "y": 106.603
+        "Address": "WVHH+44V, An Bình, Thành phố Biên Hòa, Dong Nai, Vietnam",
+        "Coordinates": { 
+            "x": 10.9278678,
+            "y": 106.8752166
         }
     },
     {
-        "LocationID": "LOC016",
-        "Name": "Tan Cang Border Gate",
-        "Type": "Cua_khau",
-        "Address": "District 4, Ho Chi Minh City",
-        "Coordinates": {
-            "x": 10.759,
-            "y": 106.701
-        }
-    },
-    {
-        "LocationID": "LOC017",
-        "Name": "Thao Dien Materials Warehouse",
-        "Type": "Kho_vat_tu",
-        "Address": "District 2, Ho Chi Minh City",
-        "Coordinates": {
-            "x": 10.8,
-            "y": 106.74
-        }
-    },
-    {
-        "LocationID": "LOC018",
-        "Name": "Go Vap Depot",
-        "Type": "Depot",
-        "Address": "Go Vap District, Ho Chi Minh City",
-        "Coordinates": {
-            "x": 10.83,
-            "y": 106.665
-        }
-    },
-    {
-        "LocationID": "LOC019",
-        "Name": "Phu Nhuan Warehouse",
-        "Type": "Warehouse",
-        "Address": "Phu Nhuan District, Ho Chi Minh City",
-        "Coordinates": {
-            "x": 10.795,
-            "y": 106.68
-        }
-    },
-    {
-        "LocationID": "LOC020",
-        "Name": "Thu Thiem New Port",
+        "LocationID": 16,
+        "Name": "NAM KHÁNH SÓNG THẦN",
         "Type": "Port",
-        "Address": "Thu Duc City, Ho Chi Minh City",
+        "Address": "121, Đường 26, Khu Công Nghiệp Sóng Thần 2, Phường Tân Đông Hiệp, Thị Xã Thuận An, Tân Đông Hiệp, Dĩ An, Bình Dương, Vietnam",
         "Coordinates": {
-            "x": 10.765,
-            "y": 106.775
+            "x": 10.8977544,
+            "y": 106.7388458
         }
     },
     {
-        "LocationID": "LOC021",
-        "Name": "Hoc Mon Customs Warehouse",
-        "Type": "Warehouse",
-        "Address": "Hoc Mon District, Ho Chi Minh City",
-        "Coordinates": {
-            "x": 10.883,
-            "y": 106.587
-        }
-    },
-    {
-        "LocationID": "LOC022",
-        "Name": "Can Gio Port",
+        "LocationID": 17,
+        "Name": "Cảng Tân Cảng Cái Mép-TCCT",
         "Type": "Port",
-        "Address": "Can Gio District, Ho Chi Minh City",
-        "Coordinates": {
-            "x": 10.415,
-            "y": 106.966
+        "Address": "Tầng 7, tòa nhà Saigon Newport, phường Tân Phước, thị xã Phú Mỹ, tỉnh Bà Rịa – Vũng Tàu",
+        "Coordinates": { 
+            "x": 10.5339279,
+            "y": 107.0318161
         }
     },
     {
-        "LocationID": "LOC023",
-        "Name": "Nha Be Depot",
-        "Type": "Depot",
-        "Address": "Nha Be District, Ho Chi Minh City",
-        "Coordinates": {
-            "x": 10.695,
-            "y": 106.738
-        }
-    },
-    {
-        "LocationID": "LOC024",
-        "Name": "Cu Chi Border Gate",
-        "Type": "Cua_khau",
-        "Address": "Cu Chi District, Ho Chi Minh City",
-        "Coordinates": {
-            "x": 10.973,
-            "y": 106.493
-        }
-    },
-    {
-        "LocationID": "LOC025",
-        "Name": "Tan Binh Industrial Materials",
-        "Type": "Kho_vat_tu",
-        "Address": "Tan Binh District, Ho Chi Minh City",
-        "Coordinates": {
-            "x": 10.8,
-            "y": 106.651
-        }
-    },
-    {
-        "LocationID": "LOC026",
-        "Name": "District 3 Retail Warehouse",
-        "Type": "Warehouse",
-        "Address": "District 3, Ho Chi Minh City",
-        "Coordinates": {
-            "x": 10.7815,
-            "y": 106.686
-        }
-    },
-    {
-        "LocationID": "LOC027",
-        "Name": "Ben Luc Port",
+        "LocationID": 18,
+        "Name": "ICD Tân Cảng Sóng Thần (ICDST)",
         "Type": "Port",
-        "Address": "Ben Luc District, Long An",
-        "Coordinates": {
-            "x": 10.64,
-            "y": 106.48
+        "Address": "Số 7/20 - Đường ĐT 743 - KP. Bình Đáng - P. Bình Hòa - Tx. Thuận An - T. Bình Dương",
+        "Coordinates": { 
+            "x": 10.9481904,
+            "y": 106.663421
         }
     },
     {
-        "LocationID": "LOC028",
-        "Name": "Thu Dau Mot Depot",
-        "Type": "Depot",
-        "Address": "Thu Dau Mot, Binh Duong",
-        "Coordinates": {
-            "x": 11.002,
-            "y": 106.667
+        "LocationID": 19,
+        "Name": "Cảng Quốc tế SP-SSA (SSIT)",
+        "Type": "Port",
+        "Address": "Phuoc Loc Quarter, Ward, Phước Hoà, Tân Thành, Bà Rịa - Vũng Tàu",
+        "Coordinates": { 
+            "x": 10.5049291,
+            "y": 107.0065953
         }
     },
     {
-        "LocationID": "LOC029",
-        "Name": "Bien Hoa Border Gate",
-        "Type": "Cua_khau",
-        "Address": "Bien Hoa, Dong Nai",
-        "Coordinates": {
-            "x": 10.957,
-            "y": 106.845
+        "LocationID": 20,
+        "Name": "Cảng Bình Dương",
+        "Type": "Port",
+        "Address": "TĐ số 712, TBĐ số 8.BT.B, Tổ 5, khu phố Quyết Thắng, phường Bình Thắng, TP. Dĩ An, Tỉnh Bình Dương",
+        "Coordinates": { 
+            "x": 10.8840041,
+            "y": 106.794834
         }
-    },
-    {
-        "LocationID": "LOC030",
-        "Name": "Vinh Loc Warehouse",
-        "Type": "Warehouse",
-        "Address": "Vinh Loc, Binh Chanh, Ho Chi Minh City",
-        "Coordinates": {
-            "x": 10.723,
-            "y": 106.643
-        }
-    },
-    {
-        "LocationID": "LOC_NEW",
-        "Name": "New Location",
-        "Address": "123 New St",
-        "Coordinates": [
-            10.9877,
-            104.749
-        ],
-        "Type": "New"
-    },
-    {
-        "LocationID": "LOC_NEW",
-        "Name": "New Location",
-        "Address": "123 New St",
-        "Coordinates": [
-            10.9877,
-            104.749
-        ],
-        "Type": "New"
     }
 ]

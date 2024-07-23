@@ -1,322 +1,34 @@
 [
     {
-        "TaskJobID": "TASK001",
-        "OrderID": "ORD001",
+        "TaskJobID": "d3d972f1-0d15-4e75-a550-81db641c050e",
+        "OrderID": 1,
         "TaskJobType": "Book_1",
         "Deadline": "2024-04-25",
-        "Locations": ["LOC002", "LOC001"],
+        "Locations": [null, 13],
         "CurrentStatus": "Pending"
     },
     {
-        "TaskJobID": "TASK002",
-        "OrderID": "ORD001",
+        "TaskJobID": "68ffcc0f-e1ce-43ec-8c0e-90ec55d64d70",
+        "OrderID": 1,
         "TaskJobType": "Book_2",
         "Deadline": "2024-04-30",
-        "Locations": ["LOC001", "LOC002"],
+        "Locations": [13, 17],
         "CurrentStatus": "Pending"
     },
     {
-        "TaskJobID": "TASK003",
-        "OrderID": "ORD002",
+        "TaskJobID": "c00b1bf4-ba52-46d3-86a2-3974c3bd31cc",
+        "OrderID": 2,
         "TaskJobType": "Bill_1",
         "Deadline": "2024-07-10",
-        "Locations": ["LOC003", "LOC004"],
+        "Locations": [19, 11],
         "CurrentStatus": "Pending"
     },
     {
-        "TaskJobID": "TASK004",
-        "OrderID": "ORD002",
+        "TaskJobID": "0699f5d2-30b3-4454-a1bf-40901eec2d4f",
+        "OrderID": 2,
         "TaskJobType": "Bill_2",
         "Deadline": "2024-07-20",
-        "Locations": ["LOC004", "LOC003"],
-        "CurrentStatus": "Pending"
-    },
-    {
-        "TaskJobID": "TASK005",
-        "OrderID": "ORD003",
-        "TaskJobType": "Book_1",
-        "Deadline": "2024-05-25",
-        "Locations": ["LOC001", "LOC005"],
-        "CurrentStatus": "Pending"
-    },
-    {
-        "TaskJobID": "TASK006",
-        "OrderID": "ORD003",
-        "TaskJobType": "Book_2",
-        "Deadline": "2024-05-30",
-        "Locations": ["LOC005", "LOC006"],
-        "CurrentStatus": "Pending"
-    },
-    {
-        "TaskJobID": "TASK007",
-        "OrderID": "ORD004",
-        "TaskJobType": "Bill_1",
-        "Deadline": "2024-09-05",
-        "Locations": ["LOC007", "LOC008"],
-        "CurrentStatus": "Pending"
-    },
-    {
-        "TaskJobID": "TASK008",
-        "OrderID": "ORD004",
-        "TaskJobType": "Bill_2",
-        "Deadline": "2024-09-15",
-        "Locations": ["LOC008", "LOC007"],
-        "CurrentStatus": "Pending"
-    },
-    {
-        "TaskJobID": "TASK009",
-        "OrderID": "ORD005",
-        "TaskJobType": "Book_1",
-        "Deadline": "2024-09-17",
-        "Locations": ["LOC001", "LOC009"],
-        "CurrentStatus": "Pending"
-    },
-    {
-        "TaskJobID": "TASK010",
-        "OrderID": "ORD005",
-        "TaskJobType": "Book_2",
-        "Deadline": "2024-09-22",
-        "Locations": ["LOC009", "LOC010"],
-        "CurrentStatus": "Pending"
-    },
-    {
-        "TaskJobID": "TASK011",
-        "OrderID": "ORD006",
-        "TaskJobType": "Bill_1",
-        "Deadline": "2024-11-10",
-        "Locations": ["LOC011", "LOC012"],
-        "CurrentStatus": "Pending"
-    },
-    {
-        "TaskJobID": "TASK012",
-        "OrderID": "ORD006",
-        "TaskJobType": "Bill_2",
-        "Deadline": "2024-11-20",
-        "Locations": ["LOC012", "LOC011"],
-        "CurrentStatus": "Pending"
-    },
-    {
-        "TaskJobID": "TASK013",
-        "OrderID": "ORD007",
-        "TaskJobType": "Book_1",
-        "Deadline": "2024-11-25",
-        "Locations": ["LOC001", "LOC013"],
-        "CurrentStatus": "Pending"
-    },
-    {
-        "TaskJobID": "TASK014",
-        "OrderID": "ORD007",
-        "TaskJobType": "Book_2",
-        "Deadline": "2024-11-30",
-        "Locations": ["LOC013", "LOC014"],
-        "CurrentStatus": "Pending"
-    },
-    {
-        "TaskJobID": "TASK015",
-        "OrderID": "ORD008",
-        "TaskJobType": "Bill_1",
-        "Deadline": "2024-01-05",
-        "Locations": ["LOC015", "LOC016"],
-        "CurrentStatus": "Pending"
-    },
-    {
-        "TaskJobID": "TASK016",
-        "OrderID": "ORD008",
-        "TaskJobType": "Bill_2",
-        "Deadline": "2024-01-15",
-        "Locations": ["LOC016", "LOC015"],
-        "CurrentStatus": "Pending"
-    },
-    {
-        "TaskJobID": "TASK017",
-        "OrderID": "ORD009",
-        "TaskJobType": "Book_1",
-        "Deadline": "2025-01-23",
-        "Locations": ["LOC001", "LOC017"],
-        "CurrentStatus": "Pending"
-    },
-    {
-        "TaskJobID": "TASK018",
-        "OrderID": "ORD009",
-        "TaskJobType": "Book_2",
-        "Deadline": "2025-01-28",
-        "Locations": ["LOC017", "LOC018"],
-        "CurrentStatus": "Pending"
-    },
-    {
-        "TaskJobID": "TASK019",
-        "OrderID": "ORD010",
-        "TaskJobType": "Bill_1",
-        "Deadline": "2025-03-20",
-        "Locations": ["LOC019", "LOC020"],
-        "CurrentStatus": "Pending"
-    },
-    {
-        "TaskJobID": "TASK020",
-        "OrderID": "ORD010",
-        "TaskJobType": "Bill_2",
-        "Deadline": "2025-03-30",
-        "Locations": ["LOC020", "LOC019"],
-        "CurrentStatus": "Pending"
-    },
-    {
-        "TaskJobID": "TASK021",
-        "OrderID": "ORD011",
-        "TaskJobType": "Book_1",
-        "Deadline": "2025-03-27",
-        "Locations": ["LOC001", "LOC021"],
-        "CurrentStatus": "Pending"
-    },
-    {
-        "TaskJobID": "TASK022",
-        "OrderID": "ORD011",
-        "TaskJobType": "Book_2",
-        "Deadline": "2025-03-31",
-        "Locations": ["LOC021", "LOC022"],
-        "CurrentStatus": "Pending"
-    },
-    {
-        "TaskJobID": "TASK023",
-        "OrderID": "ORD012",
-        "TaskJobType": "Bill_1",
-        "Deadline": "2025-05-15",
-        "Locations": ["LOC023", "LOC024"],
-        "CurrentStatus": "Pending"
-    },
-    {
-        "TaskJobID": "TASK024",
-        "OrderID": "ORD012",
-        "TaskJobType": "Bill_2",
-        "Deadline": "2025-05-25",
-        "Locations": ["LOC024", "LOC023"],
-        "CurrentStatus": "Pending"
-    },
-    {
-        "TaskJobID": "TASK025",
-        "OrderID": "ORD013",
-        "TaskJobType": "Book_1",
-        "Deadline": "2025-05-20",
-        "Locations": ["LOC001", "LOC025"],
-        "CurrentStatus": "Pending"
-    },
-    {
-        "TaskJobID": "TASK026",
-        "OrderID": "ORD013",
-        "TaskJobType": "Book_2",
-        "Deadline": "2025-05-24",
-        "Locations": ["LOC025", "LOC026"],
-        "CurrentStatus": "Pending"
-    },
-    {
-        "TaskJobID": "TASK027",
-        "OrderID": "ORD014",
-        "TaskJobType": "Bill_1",
-        "Deadline": "2025-07-05",
-        "Locations": ["LOC027", "LOC028"],
-        "CurrentStatus": "Pending"
-    },
-    {
-        "TaskJobID": "TASK028",
-        "OrderID": "ORD014",
-        "TaskJobType": "Bill_2",
-        "Deadline": "2025-07-15",
-        "Locations": ["LOC028", "LOC027"],
-        "CurrentStatus": "Pending"
-    },
-    {
-        "TaskJobID": "TASK029",
-        "OrderID": "ORD015",
-        "TaskJobType": "Book_1",
-        "Deadline": "2025-07-08",
-        "Locations": ["LOC001", "LOC029"],
-        "CurrentStatus": "Pending"
-    },
-    {
-        "TaskJobID": "TASK030",
-        "OrderID": "ORD015",
-        "TaskJobType": "Book_2",
-        "Deadline": "2025-07-13",
-        "Locations": ["LOC029", "LOC030"],
-        "CurrentStatus": "Pending"
-    },
-    {
-        "TaskJobID": "TASK031",
-        "OrderID": "ORD016",
-        "TaskJobType": "Bill_1",
-        "Deadline": "2025-08-28",
-        "Locations": ["LOC001", "LOC002"],
-        "CurrentStatus": "Pending"
-    },
-    {
-        "TaskJobID": "TASK032",
-        "OrderID": "ORD016",
-        "TaskJobType": "Bill_2",
-        "Deadline": "2025-09-08",
-        "Locations": ["LOC002", "LOC001"],
-        "CurrentStatus": "Pending"
-    },
-    {
-        "TaskJobID": "TASK033",
-        "OrderID": "ORD017",
-        "TaskJobType": "Book_1",
-        "Deadline": "2025-08-30",
-        "Locations": ["LOC001", "LOC003"],
-        "CurrentStatus": "Pending"
-    },
-    {
-        "TaskJobID": "TASK034",
-        "OrderID": "ORD017",
-        "TaskJobType": "Book_2",
-        "Deadline": "2025-09-04",
-        "Locations": ["LOC003", "LOC004"],
-        "CurrentStatus": "Pending"
-    },
-    {
-        "TaskJobID": "TASK035",
-        "OrderID": "ORD018",
-        "TaskJobType": "Bill_1",
-        "Deadline": "2025-10-20",
-        "Locations": ["LOC005", "LOC006"],
-        "CurrentStatus": "Pending"
-    },
-    {
-        "TaskJobID": "TASK036",
-        "OrderID": "ORD018",
-        "TaskJobType": "Bill_2",
-        "Deadline": "2025-10-30",
-        "Locations": ["LOC006", "LOC005"],
-        "CurrentStatus": "Pending"
-    },
-    {
-        "TaskJobID": "TASK037",
-        "OrderID": "ORD019",
-        "TaskJobType": "Book_1",
-        "Deadline": "2025-10-25",
-        "Locations": ["LOC001", "LOC007"],
-        "CurrentStatus": "Pending"
-    },
-    {
-        "TaskJobID": "TASK038",
-        "OrderID": "ORD019",
-        "TaskJobType": "Book_2",
-        "Deadline": "2025-10-30",
-        "Locations": ["LOC007", "LOC008"],
-        "CurrentStatus": "Pending"
-    },
-    {
-        "TaskJobID": "TASK039",
-        "OrderID": "ORD020",
-        "TaskJobType": "Bill_1",
-        "Deadline": "2025-12-10",
-        "Locations": ["LOC009", "LOC010"],
-        "CurrentStatus": "Pending"
-    },
-    {
-        "TaskJobID": "TASK040",
-        "OrderID": "ORD020",
-        "TaskJobType": "Bill_2",
-        "Deadline": "2025-12-20",
-        "Locations": ["LOC010", "LOC009"],
+        "Locations": [11, 19],
         "CurrentStatus": "Pending"
     }
 ]

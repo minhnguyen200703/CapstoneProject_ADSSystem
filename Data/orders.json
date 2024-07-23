@@ -1,162 +1,18 @@
 [
     {
-        "OrderID": "ORD001",
+        "OrderID": 1,
         "OrderType": "Booking",
-        "Locations": ["LOC001", "LOC002"],
+        "Locations": [13, 17],
         "Book_LiftingEmpty": "2024-04-25",
         "Book_CutOffDate": "2024-04-30",
         "CurrentStatus": "Pending"
     },
     {
-        "OrderID": "ORD002",
+        "OrderID": 2,
         "OrderType": "Bill",
-        "Locations": ["LOC003", "LOC004"],
+        "Locations": [19, 11],
         "Bill_LastFreeDayDEM": "2024-07-10",
         "Bill_LastFreeDayDET": "2024-07-20",
-        "CurrentStatus": "Pending"
-    },
-    {
-        "OrderID": "ORD003",
-        "OrderType": "Booking",
-        "Locations": ["LOC005", "LOC006"],
-        "Book_LiftingEmpty": "2024-05-25",
-        "Book_CutOffDate": "2024-05-30",
-        "CurrentStatus": "Pending"
-    },
-    {
-        "OrderID": "ORD004",
-        "OrderType": "Bill",
-        "Locations": ["LOC007", "LOC008"],
-        "Bill_LastFreeDayDEM": "2024-09-05",
-        "Bill_LastFreeDayDET": "2024-09-15",
-        "CurrentStatus": "Pending"
-    },
-    {
-        "OrderID": "ORD005",
-        "OrderType": "Booking",
-        "Locations": ["LOC009", "LOC010"],
-        "Book_LiftingEmpty": "2024-09-17",
-        "Book_CutOffDate": "2024-09-22",
-        "CurrentStatus": "Pending"
-    },
-    {
-        "OrderID": "ORD006",
-        "OrderType": "Bill",
-        "Locations": ["LOC011", "LOC012"],
-        "Bill_LastFreeDayDEM": "2024-11-10",
-        "Bill_LastFreeDayDET": "2024-11-20",
-        "CurrentStatus": "Pending"
-    },
-    {
-        "OrderID": "ORD007",
-        "OrderType": "Booking",
-        "Locations": ["LOC013", "LOC014"],
-        "Book_LiftingEmpty": "2024-11-25",
-        "Book_CutOffDate": "2024-11-30",
-        "CurrentStatus": "Pending"
-    },
-    {
-        "OrderID": "ORD008",
-        "OrderType": "Bill",
-        "Locations": ["LOC015", "LOC016"],
-        "Bill_LastFreeDayDEM": "2024-01-05",
-        "Bill_LastFreeDayDET": "2024-01-15",
-        "CurrentStatus": "Pending"
-    },
-    {
-        "OrderID": "ORD009",
-        "OrderType": "Booking",
-        "Locations": ["LOC017", "LOC018"],
-        "Book_LiftingEmpty": "2025-01-23",
-        "Book_CutOffDate": "2025-01-28",
-        "CurrentStatus": "Pending"
-    },
-    {
-        "OrderID": "ORD010",
-        "OrderType": "Bill",
-        "Locations": ["LOC019", "LOC020"],
-        "Bill_LastFreeDayDEM": "2025-03-20",
-        "Bill_LastFreeDayDET": "2025-03-30",
-        "CurrentStatus": "Pending"
-    },
-    {
-        "OrderID": "ORD011",
-        "OrderType": "Booking",
-        "Locations": ["LOC021", "LOC022"],
-        "Book_LiftingEmpty": "2025-03-27",
-        "Book_CutOffDate": "2025-03-31",
-        "CurrentStatus": "Pending"
-    },
-    {
-        "OrderID": "ORD012",
-        "OrderType": "Bill",
-        "Locations": ["LOC023", "LOC024"],
-        "Bill_LastFreeDayDEM": "2025-05-15",
-        "Bill_LastFreeDayDET": "2025-05-25",
-        "CurrentStatus": "Pending"
-    },
-    {
-        "OrderID": "ORD013",
-        "OrderType": "Booking",
-        "Locations": ["LOC025", "LOC026"],
-        "Book_LiftingEmpty": "2025-05-20",
-        "Book_CutOffDate": "2025-05-24",
-        "CurrentStatus": "Pending"
-    },
-    {
-        "OrderID": "ORD014",
-        "OrderType": "Bill",
-        "Locations": ["LOC027", "LOC028"],
-        "Bill_LastFreeDayDEM": "2025-07-05",
-        "Bill_LastFreeDayDET": "2025-07-15",
-        "CurrentStatus": "Pending"
-    },
-    {
-        "OrderID": "ORD015",
-        "OrderType": "Booking",
-        "Locations": ["LOC029", "LOC030"],
-        "Book_LiftingEmpty": "2025-07-08",
-        "Book_CutOffDate": "2025-07-13",
-        "CurrentStatus": "Pending"
-    },
-    {
-        "OrderID": "ORD016",
-        "OrderType": "Bill",
-        "Locations": ["LOC001", "LOC002"],
-        "Bill_LastFreeDayDEM": "2025-08-28",
-        "Bill_LastFreeDayDET": "2025-09-08",
-        "CurrentStatus": "Pending"
-    },
-    {
-        "OrderID": "ORD017",
-        "OrderType": "Booking",
-        "Locations": ["LOC003", "LOC004"],
-        "Book_LiftingEmpty": "2025-08-30",
-        "Book_CutOffDate": "2025-09-04",
-        "CurrentStatus": "Pending"
-    },
-    {
-        "OrderID": "ORD018",
-        "OrderType": "Bill",
-        "Locations": ["LOC005", "LOC006"],
-        "Bill_LastFreeDayDEM": "2025-10-20",
-        "Bill_LastFreeDayDET": "2025-10-30",
-        "CurrentStatus": "Pending"
-    },
-    {
-        "OrderID": "ORD019",
-        "OrderType": "Booking",
-        "Locations": ["LOC007", "LOC008"],
-        "Book_LiftingEmpty": "2025-10-25",
-        "Book_CutOffDate": "2025-10-30",
-        "CurrentStatus": "Pending"
-    },
-    {
-        "OrderID": "ORD020",
-        "OrderType": "Bill",
-        "Locations": ["LOC009", "LOC010"],
-        "Bill_LastFreeDayDEM": "2025-12-10",
-        "Bill_LastFreeDayDET": "2025-12-20",
         "CurrentStatus": "Pending"
     }
 ]
