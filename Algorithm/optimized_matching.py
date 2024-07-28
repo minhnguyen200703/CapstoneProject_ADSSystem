@@ -1,3 +1,6 @@
+import itertools
+
+
 # Function to calculate the distance between two locations
 def calculate_distance(loc1, loc2, distances):
     for distance in distances:
@@ -54,13 +57,6 @@ def calculate_total_distance(plan, trucks, taskjobs, distances, containers):
             total_distance += distance
 
     return total_distance
-
-
-# best_matching_plan.py
-
-import itertools
-from nearest_trucks import find_k_nearest_trucks
-from total_distance import calculate_total_distance
 
 # Function to find the best matching plan
 def find_best_matching_plan(trucks, taskjobs, distances, containers):
