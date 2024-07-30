@@ -1,6 +1,5 @@
 import itertools
 
-
 # Function to calculate the distance between two locations
 def calculate_distance(loc1, loc2, distances):
     for distance in distances:

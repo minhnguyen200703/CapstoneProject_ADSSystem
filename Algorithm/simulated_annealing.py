@@ -1,4 +1,3 @@
-
 # simulated_annealing.py
 import random
 import math
