@@ -3,7 +3,7 @@
         "LocationID": 1,
         "Name": "DEPOT A CHUAN",
         "Type": "DEPOT",
-        "Address": "Bình Chuẩn 60, Bình Chuẩn, Tp. Thủ Dầu Một, Bình Dương",
+        "Address": "Binh Chuan 60, Binh Chuan, Tp. Thu Dau Mot, Binh Duong",
         "Coordinates": {
             "x": 106.7275425,
             "y": 10.9814486
@@ -23,7 +23,7 @@
         "LocationID": 3,
         "Name": "DEPOT CAT LAI 5",
         "Type": "DEPOT",
-        "Address": "63 Đường B, Phường Thạnh Mỹ Lợi, Quận 2, Thành phố Hồ Chí Minh, Việt Nam",
+        "Address": "63 Duong B, Phuong Thanh My Loi, Quan 2, Thanh Pho Ho Chi Minh, Viet Nam",
         "Coordinates": {
             "x": 10.763046,
             "y": 106.7346622
@@ -33,7 +33,7 @@
         "LocationID": 4,
         "Name": "DEPOT CHAN THAT - SONG THAN",
         "Type": "DEPOT",
-        "Address": "ICD Sóng Thần, DT 743, Bình Hòa, Thuận An,Tình Bình Dương",
+        "Address": "ICD Song Than, DT 743, Binh Hoa, Thuan An,Tinh Binh Duong",
         "Coordinates": {
             "x": 10.9138474,
             "y": 106.7379555
@@ -43,7 +43,7 @@
         "LocationID": 5,
         "Name": "DEPOT CHAN THAT LONG THANH MY",
         "Type": "DEPOT",
-        "Address": "Đường số 7, Long Thạnh Mỹ, Quận 9, Thành phố Hồ Chí Minh, Việt Nam",
+        "Address": "Duong so 7, Long Thanh My, Quan 9, Thanh Pho Ho Chi Minh, Viet Nam",
         "Coordinates": {
             "x": 10.8451124,
             "y": 106.7996656
@@ -53,7 +53,7 @@
         "LocationID": 6,
         "Name": "Cheng Loong",
         "Type": "Warehouse",
-        "Address": "xã An Tây, thị xã Bến Cát, tỉnh Bình Dương",
+        "Address": "xa An Tây, thi xa Ben Cat, tinh Binh Duong",
         "Coordinates": {
             "x": 11.1089347,
             "y": 106.5434554
@@ -63,7 +63,7 @@
         "LocationID": 7,
         "Name": "KHO GEMADEPT",
         "Type": "Warehouse",
-        "Address": "D1, AN THẠNH, THUẬN AN, BÌNH DƯƠNG",
+        "Address": "D1, AN Thanh, Thuan AN, Binh Duong",
         "Coordinates": { 
             "x": 10.9591251,
             "y": 106.691274
@@ -73,7 +73,7 @@
         "LocationID": 8,
         "Name": "GRAND WOOD",
         "Type": "Warehouse",
-        "Address": "Thửa đất số 36, tờ bản đồ số 18, Ấp 1, Xã Hội Nghĩa, Thị xã Tân Uyên, Tỉnh Bình Dương",
+        "Address": "Thua dat so 36, to ban do so 18, Ap 1, xa Hoi Nghia, thi xa Tan Uyen, tinh Binh Duong",
         "Coordinates": { 
             "x": 11.0261186,
             "y": 106.6544494
@@ -83,7 +83,7 @@
         "LocationID": 9,
         "Name": "hui-cheng",
         "Type": "Warehouse",
-        "Address": "Đ. Tân phước khánh 32, Tân Phước Khánh, Thành phố Tân Uyên, Bình Dương",
+        "Address": "D. Tan phuoc khanh 32, Tan Phuong Khanh, Thanh pho Tan Uyen, Binh Duong",
         "Coordinates": { 
             "x": 11.0028152,
             "y": 106.7359759
@@ -93,7 +93,7 @@
         "LocationID": 10,
         "Name": "INTERWOOD",
         "Type": "Warehouse",
-        "Address": "Phường Uyên Hưng, Thị Xã Tân Uyên, Tỉnh Bình Dương",
+        "Address": "Phuong Uyen Hung, thi xa Tan Uyen, tinh Binh Duong",
         "Coordinates": {
             "x": 11.0678682,
             "y": 106.7662223
@@ -101,9 +101,9 @@
     },
     {
         "LocationID": 11,
-        "Name": "CÔNG TY TNHH VISION INTERNATIONAL",
+        "Name": "CONG TY TNHH VISION INTERNATIONAL",
         "Type": "kho_vat_tu",
-        "Address": "Số 19 Đại Lộ Hữu Nghị, KCN Việt Nam - Singapore, Phường Bình Hòa, Thành phố Thuận An, Tỉnh Bình Dương",
+        "Address": "so 19 Dai Lo Huu Nghi, KCN Viet Nam - Singapore, Phuong Binh Hoa, Thanh pho Thuan An, tinh Binh Duong",
         "Coordinates": { 
             "x": 10.9245923,
             "y": 106.7210082
@@ -111,9 +111,9 @@
     },
     {
         "LocationID": 12,
-        "Name": "CÔNG TY TNHH BAO BÌ YUE YUE VIỆT NAM",
+        "Name": "CONG TY TNHH BAO BI YUE YUE Viet Nam",
         "Type": "kho_vat_tu",
-        "Address": "Số 55, Đường 31 Nhánh 2, Ấp Bình Cơ, Xã Bình Mỹ, Huyện Bắc Tân Uyên, Tỉnh Bình Dương, Việt Nam",
+        "Address": "so 55, Duong 31 Nhanh 2, Ap Binh Co, xa Binh My, Huyen Bac Tan Uyen, tinh Binh Duong, Viet Nam",
         "Coordinates": { 
             "x": 11.1248174,
             "y": 106.6706805
@@ -121,7 +121,7 @@
     },
     {
         "LocationID": 13,
-        "Name": "Công Ty TNHH Ngũ Kim Junlan",
+        "Name": "Cong Ty TNHH Ngu Kim Junlan",
         "Type": "kho_vat_tu",
         "Address": "Binh Chanh, Ho Chi Minh City",
         "Coordinates": { 
@@ -133,7 +133,7 @@
         "LocationID": 14,
         "Name": "VSIP 1",
         "Type": "kho_vat_tu",
-        "Address": "1 VSIP Street 3, Thuận Giao, Thuận An, Bình Dương",
+        "Address": "1 VSIP Street 3, Thuan Giao, Thuan An, Binh Duong",
         "Coordinates": { 
             "x": 10.9380793,
             "y": 106.7098037
@@ -141,9 +141,9 @@
     },
     {
         "LocationID": 15,
-        "Name": "KCN BIÊN HÒA 2",
+        "Name": "KCN BIEN Hoa 2",
         "Type": "Warehouse",
-        "Address": "WVHH+44V, An Bình, Thành phố Biên Hòa, Dong Nai, Vietnam",
+        "Address": "WVHH+44V, An Binh, Thanh pho Bien Hoa, Dong Nai, Vietnam",
         "Coordinates": { 
             "x": 10.9278678,
             "y": 106.8752166
@@ -151,9 +151,9 @@
     },
     {
         "LocationID": 16,
-        "Name": "NAM KHÁNH SÓNG THẦN",
+        "Name": "NAM KHANH SONG THAN",
         "Type": "Port",
-        "Address": "121, Đường 26, Khu Công Nghiệp Sóng Thần 2, Phường Tân Đông Hiệp, Thị Xã Thuận An, Tân Đông Hiệp, Dĩ An, Bình Dương, Vietnam",
+        "Address": "121, Duong 26, Khu Công Nghiep Song Than 2, Phuong Tan Dong Hiep, thi xa Thuan An, Tan Dong Hiep, Di An, Binh Duong, Vietnam",
         "Coordinates": {
             "x": 10.8977544,
             "y": 106.7388458
@@ -161,9 +161,9 @@
     },
     {
         "LocationID": 17,
-        "Name": "Cảng Tân Cảng Cái Mép-TCCT",
+        "Name": "Cang Tan Cang Cai Mep-TCCT",
         "Type": "Port",
-        "Address": "Tầng 7, tòa nhà Saigon Newport, phường Tân Phước, thị xã Phú Mỹ, tỉnh Bà Rịa – Vũng Tàu",
+        "Address": "Tang 7, toa nha Saigon Newport, Phuong Tan Phuong,Khanh xa Phú My, tinh Ba Ria - Vung Tau",
         "Coordinates": { 
             "x": 10.5339279,
             "y": 107.0318161
@@ -171,9 +171,9 @@
     },
     {
         "LocationID": 18,
-        "Name": "ICD Tân Cảng Sóng Thần (ICDST)",
+        "Name": "ICD Tan Cang Song Than (ICDST)",
         "Type": "Port",
-        "Address": "Số 7/20 - Đường ĐT 743 - KP. Bình Đáng - P. Bình Hòa - Tx. Thuận An - T. Bình Dương",
+        "Address": "so 7/20 - Duong DT 743 - KP. Binh Dang - P. Binh Hoa - Tx. Thuan An - T. Binh Duong",
         "Coordinates": { 
             "x": 10.9481904,
             "y": 106.663421
@@ -181,9 +181,9 @@
     },
     {
         "LocationID": 19,
-        "Name": "Cảng Quốc tế SP-SSA (SSIT)",
+        "Name": "Cang Quoc te SP-SSA (SSIT)",
         "Type": "Port",
-        "Address": "Phuoc Loc Quarter, Ward, Phước Hoà, Tân Thành, Bà Rịa - Vũng Tàu",
+        "Address": "Phuoc Loc Quarter, Ward, Phuong Khanh, Tan Thanh, Ba Ria - Vung Tau",
         "Coordinates": { 
             "x": 10.5049291,
             "y": 107.0065953
@@ -191,9 +191,9 @@
     },
     {
         "LocationID": 20,
-        "Name": "Cảng Bình Dương",
+        "Name": "Cang Binh Duong",
         "Type": "Port",
-        "Address": "TĐ số 712, TBĐ số 8.BT.B, Tổ 5, khu phố Quyết Thắng, phường Bình Thắng, TP. Dĩ An, Tỉnh Bình Dương",
+        "Address": "TD so 712, TBD so 8.BT.B, To 5, khu pho Quyet Thang, Phuong Binh Thang, TP. Di An, tinh Binh Duong",
         "Coordinates": { 
             "x": 10.8840041,
             "y": 106.794834

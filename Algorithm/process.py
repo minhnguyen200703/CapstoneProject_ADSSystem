@@ -2,19 +2,25 @@ import json
 from preprocess import generate_taskjobs_from_orders
 from trivial import calculate_distance, generate_matching_plans, calculate_total_distance
 
-# Open and parse JSON files
-with open('../Data/trucks.json') as f_Truck, \
-     open('../Data/containers.json') as f_Containers, \
-     open('../Data/orders.json') as f_Orders, \
-     open('../Data/locations.json') as f_locations, \
-     open('../Data/distances.json') as f_distances:
-
+# # Open and parse JSON files
+# with open('..\\Data\\trucks.json') as f_Truck, \
+#      open('..\\Data\\containers.json') as f_Containers, \
+#      open('..\\Data\\orders.json') as f_Orders, \
+#      open('..\\Data\\locations.json') as f_Locations, \
+#      open('..\\Data\\distances.json') as f_Distances:
+    
+with open('C:\\Users\\Minh\\Documents\\New folder\\CapstoneProject_ADSSystem\\Data\\trucks.json') as f_Truck, \
+     open('C:\\Users\\Minh\\Documents\\New folder\\CapstoneProject_ADSSystem\\Data\\containers.json') as f_Containers, \
+     open('C:\\Users\\Minh\\Documents\\New folder\\CapstoneProject_ADSSystem\\Data\\orders.json') as f_Orders, \
+     open('C:\\Users\\Minh\\Documents\\New folder\\CapstoneProject_ADSSystem\\Data\\locations.json') as f_Locations, \
+     open('C:\\Users\\Minh\\Documents\\New folder\\CapstoneProject_ADSSystem\\Data\\distance.json') as f_Distances:
+    
     trucks = json.load(f_Truck)
     containers = json.load(f_Containers)
     orders = json.load(f_Orders)
-    locations = json.load(f_locations)
-    distances = json.load(f_distances)
-
+    locations = json.load(f_Locations)
+    distances = json.load(f_Distances)
+    
 # Initialize dictionaries and list
 LocationList = []
 Distances = []

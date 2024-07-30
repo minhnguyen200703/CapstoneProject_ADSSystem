@@ -1,21 +1,6 @@
 {
     "RECORDS": [
         {
-            "LocationFromID": 1,
-            "LocationToID": 19,
-            "DistanceKm": "62"
-        },
-        {
-            "LocationFromID": 10,
-            "LocationToID": 19,
-            "DistanceKm": "92"
-        },
-        {
-            "LocationFromID": 5,
-            "LocationToID": 19,
-            "DistanceKm": "66"
-        },
-        {
             "LocationFromID": 10,
             "LocationToID": 4,
             "DistanceKm": "21"
@@ -64,11 +49,6 @@
             "LocationFromID": 3,
             "LocationToID": 5,
             "DistanceKm": "20"
-        },
-        {
-            "LocationFromID": 19,
-            "LocationToID": 4,
-            "DistanceKm": "71"
         },
         {
             "LocationFromID": 4,
@@ -139,11 +119,6 @@
             "LocationFromID": 3,
             "LocationToID": 10,
             "DistanceKm": "49"
-        },
-        {
-            "LocationFromID": 19,
-            "LocationToID": 10,
-            "DistanceKm": "90"
         },
         {
             "LocationFromID": 2,
