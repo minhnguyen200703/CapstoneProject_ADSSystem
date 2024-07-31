@@ -1,14 +1,7 @@
-# greedy.py
-
-# Function to calculate the distance between two locations
-def calculate_distance(loc1, loc2, distances):
-    for distance in distances:
-        if distance["LocationFromID"] == loc1 and distance["LocationToID"] == loc2:
-            return float(distance["DistanceKm"])
-    return float('inf')  # return a large number if distance is not found
+import networkx as nx
 
 # Function to assign taskjobs to trucks using a greedy algorithm
-def assign_tasks_greedy(trucks, taskjobs, distances, containers):
+def assign_tasks_greedy(trucks, taskjobs, graph, containers):
     matching_plan = {}
     available_trucks = set(trucks.keys())
     available_taskjobs = set(taskjob["TaskJobID"] for taskjob in taskjobs)
@@ -26,14 +19,20 @@ def assign_tasks_greedy(trucks, taskjobs, distances, containers):
                     container_locations = [container["Location"] for container in containers if container["isAvailable"]]
                     min_distance = float('inf')
                     for container_location in container_locations:
-                        distance = calculate_distance(str(truck_location), str(container_location), distances) + \
-                                   calculate_distance(str(container_location), str(taskjob["Locations"][1]), distances)
-                        if distance < min_distance:
-                            min_distance = distance
+                        try:
+                            distance = nx.dijkstra_path_length(graph, truck_location, container_location) + \
+                                       nx.dijkstra_path_length(graph, container_location, taskjob["Locations"][1])
+                            if distance < min_distance:
+                                min_distance = distance
+                        except nx.NetworkXNoPath:
+                            continue
                     cost = min_distance
                 else:
-                    cost = calculate_distance(str(truck_location), str(taskjob["Locations"][0]), distances) + \
-                           calculate_distance(str(taskjob["Locations"][0]), str(taskjob["Locations"][1]), distances)
+                    try:
+                        cost = nx.dijkstra_path_length(graph, truck_location, taskjob["Locations"][0]) + \
+                               nx.dijkstra_path_length(graph, taskjob["Locations"][0], taskjob["Locations"][1])
+                    except nx.NetworkXNoPath:
+                        cost = float('inf')
                 
                 if cost < min_cost:
                     min_cost = cost

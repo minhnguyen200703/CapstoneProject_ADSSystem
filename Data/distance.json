@@ -164,6 +164,29 @@
             "LocationFromID": 10,
             "LocationToID": 2,
             "DistanceKm": "37"
+        },
+        {
+            "LocationFromID": 1,
+            "LocationToID": 16,
+            "DistanceKm": "42"
+        },
+        {
+            "LocationFromID": 13,
+            "LocationToID": 16,
+            "DistanceKm": "17"
+        },
+        {
+            "LocationFromID": 17,
+            "LocationToID": 1,
+            "DistanceKm": "16"
+        },
+        {
+            "LocationFromID": 19,
+            "LocationToID": 11,
+            "DistanceKm": "34"
         }
+        
+
+        
     
 ]

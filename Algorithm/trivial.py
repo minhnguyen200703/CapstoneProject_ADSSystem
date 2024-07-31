@@ -1,5 +1,6 @@
 import itertools
 from build_graph import dijkstra
+import time
 
 # Function to calculate the total distance for a given matching plan
 def calculate_total_distance(plan, trucks, taskjobs, graph, containers):
@@ -26,6 +27,8 @@ def calculate_total_distance(plan, trucks, taskjobs, graph, containers):
 
 # Function to generate all possible matching plans
 def generate_matching_plans(trucks, taskjobs):
+
     truck_ids = list(trucks.keys())
     taskjob_ids = [taskjob["TaskJobID"] for taskjob in taskjobs]
+    time.sleep(0.03)
     return list(itertools.permutations(truck_ids, len(taskjob_ids)))
