@@ -1,5 +1,5 @@
 import itertools
-from dijkstra import dijkstra
+from build_graph import dijkstra
 
 # Function to calculate the total distance for a given matching plan
 def calculate_total_distance(plan, trucks, taskjobs, graph, containers):
@@ -12,14 +12,14 @@ def calculate_total_distance(plan, trucks, taskjobs, graph, containers):
             container_locations = [container["Location"] for container in containers if container["isAvailable"]]
             min_distance = float('inf')
             for container_location in container_locations:
-                distance = dijkstra(graph, str(truck_location), str(container_location)) + \
-                           dijkstra(graph, str(container_location), str(taskjob["Locations"][1]))
+                distance = dijkstra(graph, truck_location, container_location) + \
+                           dijkstra(graph, container_location, taskjob["Locations"][1])
                 if distance < min_distance:
                     min_distance = distance
             total_distance += min_distance
         else:
-            distance = dijkstra(graph, str(truck_location), str(taskjob["Locations"][0])) + \
-                       dijkstra(graph, str(taskjob["Locations"][0]), str(taskjob["Locations"][1]))
+            distance = dijkstra(graph, truck_location, taskjob["Locations"][0]) + \
+                       dijkstra(graph, taskjob["Locations"][0], taskjob["Locations"][1])
             total_distance += distance
 
     return total_distance

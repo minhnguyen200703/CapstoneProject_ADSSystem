@@ -1,5 +1,5 @@
-{
-    "RECORDS": [
+[
+    
         {
             "LocationFromID": 1,
             "LocationToID": 19,
@@ -165,5 +165,5 @@
             "LocationToID": 2,
             "DistanceKm": "37"
         }
-    ]
-}
+    
+]
