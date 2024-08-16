@@ -140,5 +140,22 @@
             "LocationToID": 2,
             "DistanceKm": "37"
         }
+        ,
+    {
+        "OrderID": 4,
+        "OrderType": "Bill",
+        "Locations": [7, 12],
+        "Bill_LastFreeDayDEM": "2024-04-25",
+        "Bill_LastFreeDayDET": "2024-04-30",
+        "CurrentStatus": "Pending"
+    },
+    {
+        "OrderID": 5,
+        "OrderType": "Booking",
+        "Locations": [2, 18],
+        "Book_LiftingEmpty": "2024-04-25",
+        "Book_CutOffDate": "2024-04-30",
+        "CurrentStatus": "Pending"
+    }
     ]
 }

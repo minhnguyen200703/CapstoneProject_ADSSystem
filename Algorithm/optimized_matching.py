@@ -10,6 +10,7 @@ def find_k_nearest_trucks(trucks, taskjobs, graph, containers):
             if taskjob["TaskJobType"] == "Book_1":
                 # Find nearest truck and container pair
                 min_distance = float('inf')
+                best_container = None
                 for container in containers:
                     if container["isAvailable"]:
                         container_location = container["Location"]
@@ -18,16 +19,17 @@ def find_k_nearest_trucks(trucks, taskjobs, graph, containers):
                                        nx.dijkstra_path_length(graph, container_location, taskjob["Locations"][1])
                             if distance < min_distance:
                                 min_distance = distance
+                                best_container = container["ContNumber"]
                         except nx.NetworkXNoPath:
                             continue
-                distances_to_trucks.append((truck_id, min_distance))
+                distances_to_trucks.append((truck_id, min_distance, best_container))
             else:
                 try:
                     distance = nx.dijkstra_path_length(graph, truck_location, taskjob["Locations"][0]) + \
                                nx.dijkstra_path_length(graph, taskjob["Locations"][0], taskjob["Locations"][1])
                 except nx.NetworkXNoPath:
                     distance = float('inf')
-                distances_to_trucks.append((truck_id, distance))
+                distances_to_trucks.append((truck_id, distance, None))
 
         distances_to_trucks.sort(key=lambda x: x[1])
         nearest_trucks[taskjob["TaskJobID"]] = distances_to_trucks
@@ -37,6 +39,7 @@ def find_k_nearest_trucks(trucks, taskjobs, graph, containers):
 # Function to calculate the total distance for a given matching plan
 def calculate_total_distance(plan, trucks, taskjobs, graph, containers):
     total_distance = 0
+    container_assignments = {}
     for truck_id, taskjob_id in plan.items():
         taskjob = next(tj for tj in taskjobs if tj["TaskJobID"] == taskjob_id)
         truck_location = trucks[truck_id]
@@ -44,15 +47,18 @@ def calculate_total_distance(plan, trucks, taskjobs, graph, containers):
         if taskjob["TaskJobType"] == "Book_1":
             container_locations = [container["Location"] for container in containers if container["isAvailable"]]
             min_distance = float('inf')
+            best_container = None
             for container_location in container_locations:
                 try:
                     distance = nx.dijkstra_path_length(graph, truck_location, container_location) + \
                                nx.dijkstra_path_length(graph, container_location, taskjob["Locations"][1])
                     if distance < min_distance:
                         min_distance = distance
+                        best_container = next(container["ContNumber"] for container in containers if container["Location"] == container_location)
                 except nx.NetworkXNoPath:
                     continue
             total_distance += min_distance
+            container_assignments[taskjob_id] = best_container
         else:
             try:
                 distance = nx.dijkstra_path_length(graph, truck_location, taskjob["Locations"][0]) + \
@@ -61,7 +67,7 @@ def calculate_total_distance(plan, trucks, taskjobs, graph, containers):
                 distance = float('inf')
             total_distance += distance
 
-    return total_distance
+    return total_distance, container_assignments
 
 # Function to find the best matching plan
 def find_best_matching_plan(trucks, taskjobs, graph, containers):
@@ -71,14 +77,16 @@ def find_best_matching_plan(trucks, taskjobs, graph, containers):
     truck_ids = list(trucks.keys())
 
     best_plan = None
+    best_container_plan = None
     min_distance = float('inf')
 
     # Generate all possible matching plans
     for perm in itertools.permutations(truck_ids, len(taskjob_ids)):
         plan = dict(zip(perm, taskjob_ids))
-        total_distance = calculate_total_distance(plan, trucks, taskjobs, graph, containers)
+        total_distance, container_assignments = calculate_total_distance(plan, trucks, taskjobs, graph, containers)
         if total_distance < min_distance:
             min_distance = total_distance
             best_plan = plan
+            best_container_plan = container_assignments
 
-    return best_plan, min_distance
+    return best_plan, best_container_plan, min_distance

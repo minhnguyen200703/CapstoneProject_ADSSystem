@@ -15,7 +15,7 @@
     
     {"CarID": 3, 
     "capacity": 12, 
-    "current_location": 3, 
+    "current_location": 8, 
     "container": null, 
     "isAvailable": true
     },
@@ -30,6 +30,41 @@
     {"CarID": 5, 
     "capacity": 11, 
     "current_location": 5, 
+    "container": null, 
+    "isAvailable": true
+    },
+    
+    {"CarID": 6, 
+    "capacity": 11, 
+    "current_location": 11, 
+    "container": null, 
+    "isAvailable": true
+    },
+    
+    {"CarID": 7, 
+    "capacity": 11, 
+    "current_location": 8, 
+    "container": null, 
+    "isAvailable": true
+    },
+    
+    {"CarID": 8, 
+    "capacity": 11, 
+    "current_location": 7, 
+    "container": null, 
+    "isAvailable": true
+    },
+    
+    {"CarID": 9, 
+    "capacity": 11, 
+    "current_location": 14, 
+    "container": null, 
+    "isAvailable": true
+    },
+    
+    {"CarID": 10, 
+    "capacity": 11, 
+    "current_location": 4, 
     "container": null, 
     "isAvailable": true
     }
