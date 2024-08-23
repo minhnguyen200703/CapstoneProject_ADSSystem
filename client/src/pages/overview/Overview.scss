@@ -1,0 +1,23 @@
+.overview {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .overview__header {
+        border-bottom: 1px solid #d3d3d3;
+        margin-bottom: 12px;
+    }
+
+    h1 {
+        width: 100%;
+        margin: 0;
+    }
+
+    .overview--left {
+        width: 45%;
+    }
+
+    .overview--right {
+        width: 52%;
+    }
+}

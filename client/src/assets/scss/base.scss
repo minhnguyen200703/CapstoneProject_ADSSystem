@@ -1,0 +1,362 @@
+// Variables
+:root {
+    --purple-1-color: #3A53D7;
+    --purple-2-color: #4E81E5;
+    --purple-3-color: #6B99F4;
+    --purple-4-color: #EBEBEB;
+
+    --box-shadow-1: 0 0 15px #c7d9fb;
+    --box-shadow-2: 0 2px 8px #fbe9c7;
+    --box-shadow-3: 0 2px 8px #c7d9fb;
+    --box-shadow-4: 0 4px 16px #94b6f3;
+}
+
+/* CSS Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    font-size: 16px;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #000011;
+    background-color: #f9f9f9;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Layout */
+#root {
+    flex: 1;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/* Lists */
+ul,
+ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+
+ul {
+    list-style: disc;
+}
+
+ol {
+    list-style: decimal;
+}
+
+img {
+    display: block;
+    object-fit: cover;
+}
+
+svg {
+    width: 24px;
+    height: 24px;
+}
+
+// Margins
+.mr-8 {
+    margin-right: 8px;
+}
+
+.mt-8 {
+    margin-top: 8px;
+}
+
+.mb-8 {
+    margin-bottom: 8px;
+}
+
+
+.ml-8 {
+    margin-left: 8px;
+}
+
+.mr-12 {
+    margin-right: 12px;
+}
+
+.mt-12 {
+    margin-top: 12px;
+}
+
+.mb-12 {
+    margin-bottom: 12px;
+}
+
+
+.ml-12 {
+    margin-left: 12px;
+}
+
+.mr-16 {
+    margin-right: 16px;
+}
+
+.mt-16 {
+    margin-top: 16px;
+}
+
+.mb-16 {
+    margin-bottom: 16px;
+}
+
+
+.ml-16 {
+    margin-left: 16px;
+}
+
+// Buttons
+.btn {
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-weight: 600;
+
+    &:hover {
+        cursor: pointer;
+        opacity: 0.85;
+    }
+
+    &.btn-1 {
+        background-color: var(--purple-2-color);
+        color: var(--purple-4-color);
+    }
+
+    &.btn-2 {
+        background-color: white;
+        color: var(--purple-3-color);
+    }
+
+    &.btn-md {
+        padding: 8px 12px;
+        min-width: 100px;
+        border-radius: 16px;
+        box-shadow: var(--box-shadow-1);
+    }
+}
+
+h2 {
+    margin-bottom: 0;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.back-btn {
+    display: inline-block;
+    min-width: unset;
+    padding: 8px 8px;
+    box-shadow: var(--box-shadow-3);
+    border-radius: 16px;
+    display: inline-flex;
+    justify-content: space-between;
+
+    svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.generate-plan-btn {
+    min-width: 180px !important;
+    text-align: center;
+
+    svg {
+        fill: white;
+        margin-right: 8px;
+    }
+}
+
+// Flex
+.flex-align-center {
+    display: flex;
+    align-items: center;
+}
+
+.flex-justify-center {
+    display: flex;
+    justify-content: center;
+}
+
+.flex-justify-space-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+// Tables
+.table-container {
+    width: 100%;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: var(--box-shadow-1);
+    padding-bottom: 10px;
+    overflow-x: auto;
+    font-size: 14px;
+}
+
+.status {
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 12px;
+
+    &.available {
+        background-color: #d8e5ff;
+        color: #4e78d9;
+        // box-shadow: var(--box-shadow-3);
+    }
+
+    &.unavailable {
+        background-color: #ffe6c9;
+        color: #ff912f;
+        // box-shadow: var(--box-shadow-2);
+    }
+}
+
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.custom-table th,
+.custom-table td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.custom-table th {}
+
+.custom-table td input[type="checkbox"] {
+    accent-color: var(--purple-2-color);
+    /* Change the checkbox color */
+}
+
+.show-more {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.show-more {
+    color: var(--purple-2-color);
+
+    svg {
+        color: var(--purple-2-color);
+        width: 20px;
+        height: 20px;
+        margin-left: 4px;
+    }
+}
+
+.show-more a:hover {
+    text-decoration: underline;
+}
+
+.custom-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.custom-table th:first-child,
+.custom-table td:first-child {
+    padding-left: 16px;
+    width: 120px;
+}
+
+.custom-table th:last-child,
+.custom-table td:last-child {
+    padding-right: 20px;
+}
+
+.custom-table input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+}
+
+.select-all-text {
+    cursor: pointer;
+    color: var(--purple-2-color);
+    font-weight: 600;
+}
+
+.select-all-text:hover {
+    text-decoration: underline;
+}
+
+/* Apply to the container that needs horizontal scrolling */
+.scroll-container {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    /* Hide vertical scrollbar */
+    white-space: nowrap;
+    /* Prevent wrapping */
+}
+
+hr {
+    border: none;
+    outline: none;
+    height: 1px;
+    background-color: #d3d3d3;
+}
+
+/* Style the scrollbar for WebKit browsers (Chrome, Safari) */
+.scroll-container::-webkit-scrollbar {
+    height: 8px;
+    /* Adjust the height for horizontal scrollbar */
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+    background-color: #c0c0c0;
+    /* Color of the scrollbar thumb */
+    border-radius: 10px;
+    /* Rounded corners */
+}
+
+.scroll-container::-webkit-scrollbar-thumb:hover {
+    background-color: #979292;
+    /* Darker color on hover */
+}
+
+/* Style the scrollbar for Firefox */
+.scroll-container {
+    scrollbar-width: thin;
+    /* Thin scrollbar for Firefox */
+    scrollbar-color: #c0c0c0 #f1f1f1;
+    /* Thumb color and track color */
+}

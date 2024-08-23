@@ -1,0 +1,13 @@
+.layout {
+    display: flex;
+    justify-content: space-between;
+
+    .layout--left {
+        width: 100px;
+    }
+
+    .layout--right {
+        width: calc(100% - 120px);
+        margin: 10px 50px 26px 26px;
+    }
+}

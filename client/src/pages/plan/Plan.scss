@@ -1,0 +1,108 @@
+.plan {
+    height: 100vh;
+
+    .plan--left {
+    }
+
+    .insight-container {
+        display: flex;
+
+        background-color: white;
+        width: 100%;
+        padding: 20px 24px 12px;
+        border-radius: 20px;
+        box-shadow: var(--box-shadow-1);
+
+        .insight-item {
+            text-align: center;
+            width: 25%;
+
+            strong {
+                font-size: 18px;
+                color: var(--purple-2-color);
+            }
+
+            p {
+                font-weight: 600;
+                color: var(--purple-2-color);
+            }
+        }
+
+    }
+
+    .order-container {
+        display: flex;
+        flex-wrap: wrap;
+
+        .order-item {
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            padding: 20px 24px;
+            box-shadow: var(--box-shadow-1);
+            margin-bottom: 20px;
+
+            &.active {
+                background: #356bd5;
+                box-shadow: var(--box-shadow-4);
+                color: #E2E2E2;
+
+                .order-item__step-container {
+                    .order-item__step-item {
+                        &::before {
+                            background: #e4e4e4;
+                        }
+
+                        &::after {
+                            background: #b8b8b8;
+                        }
+                    }
+                }
+            }
+
+            .order-item__step-container {
+                margin-top: 10px;
+
+                .order-item__step-item {
+                    position: relative;
+                    margin-left: 20px;
+                    padding-bottom: 16px;
+
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        display: block;
+                        top: 7px;
+                        left: -20px;
+                        width: 10px;
+                        height: 10px;
+                        border-radius: 50%;
+                        margin-right: 10px;
+                        z-index: 10;
+                        background: #b8b8b8;
+                    }
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        display: block;
+                        top: 7px;
+                        left: -16px;
+                        width: 2px;
+                        height: 100%;
+                        margin-right: 10px;
+                        z-index: 1;
+                        background: #e4e4e4;
+                    }
+
+
+                    &:last-child {
+                        &::after {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
