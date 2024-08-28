@@ -4,12 +4,14 @@ from preprocess import generate_taskjobs_from_orders
 from trivial import generate_matching_plans, calculate_total_distance
 import build_graph
 import networkx as nx
+import matplotlib.pyplot as plt
 from trivial import trivial_approach
 from greedy import assign_tasks_greedy
 from genetic import genetic_algorithm
 from simulated_annealing import simulated_annealing
 from optimized_matching import find_best_matching_plan
 from brute_force import brute_force
+from visualization import visualize_graphs  # Import the visualization functions
 
 
 
@@ -51,44 +53,49 @@ print("AwaitingTaskJob:", AwaitingTaskJob)
 # Build graph
 G = build_graph.build_graph(LocationList, Distances)
 
+# Visualize the graphs
+visualize_graphs(G, AvailableTruckList, AvailableContainerList, AwaitingTaskJob)
+
 ############################### Trivial Approach ####################################
 
 # Apply Trivial algorithm
 
-start_time = time.perf_counter_ns()
-best_trivial_plan, best_trivial_container_plan, best_trivial_distance = trivial_approach(AvailableTruckList, AwaitingTaskJob, Distances, containers)
-end_time = time.perf_counter_ns()
-trivial_runtime = end_time - start_time
-print("\nBest Matching Plan (Trivial Approach):", best_trivial_plan)
-print("Best Container Plan (Trivial Approach):", best_trivial_container_plan)
-print("Minimum Total Distance (Trivial Approach):", best_trivial_distance)
-print("Trivial Approach Algorithm Runtime: {} nanoseconds".format(trivial_runtime))
+# start_time = time.perf_counter_ns()
+# best_trivial_plan, best_trivial_container_plan, best_trivial_distance = trivial_approach(AvailableTruckList, AwaitingTaskJob, Distances, containers)
+# end_time = time.perf_counter_ns()
+# trivial_runtime = end_time - start_time
+# print("\nBest Matching Plan (Trivial Approach):", best_trivial_plan)
+# print("Best Container Plan (Trivial Approach):", best_trivial_container_plan)
+# print("Minimum Total Distance (Trivial Approach):", best_trivial_distance)
+# print("Trivial Approach Algorithm Runtime: {} nanoseconds".format(trivial_runtime))
 
 ############################### Brute Force ####################################
 
 # Apply brute force algorithm
-brute_start_time = time.perf_counter_ns()
-best_brute_plan, best_brute_container_plan, best_brute_distance = brute_force(AvailableTruckList, AwaitingTaskJob, G, containers)
-brute_end_time = time.perf_counter_ns()
-brute_runtime = brute_end_time - brute_start_time
 
-print("\nBest Matching Plan (Brute Force):", best_brute_plan)
-print("Best Container Plan (Brute Force):", best_brute_container_plan)
-print("Minimum Total Distance (Brute Force):", best_brute_distance)
-print("Brute Force Algorithm Runtime: {} nanoseconds".format(brute_runtime))
+# brute_start_time = time.perf_counter_ns()
+# best_brute_plan, best_brute_container_plan, best_brute_distance = brute_force(AvailableTruckList, AwaitingTaskJob, G, containers)
+# brute_end_time = time.perf_counter_ns()
+# brute_runtime = brute_end_time - brute_start_time
+
+# print("\nBest Matching Plan (Brute Force):", best_brute_plan)
+# print("Best Container Plan (Brute Force):", best_brute_container_plan)
+# print("Minimum Total Distance (Brute Force):", best_brute_distance)
+# print("Brute Force Algorithm Runtime: {} nanoseconds".format(brute_runtime))
 
 ############################### Greedy ####################################
 
 # Apply greedy algorithm
-greedy_start_time = time.perf_counter_ns()
-best_greedy_plan, best_greedy_container_plan, best_greedy_distance = assign_tasks_greedy(AvailableTruckList, AwaitingTaskJob, G, containers)
-greedy_end_time = time.perf_counter_ns()
-greedy_runtime = greedy_end_time - greedy_start_time
 
-print("\nBest Matching Plan (Greedy):", best_greedy_plan)
-print("Best Container Plan (Greedy):", best_greedy_container_plan)
-print("Minimum Total Distance (Greedy):", best_greedy_distance)
-print("Greedy Algorithm Runtime: {} nanoseconds".format(greedy_runtime))
+# greedy_start_time = time.perf_counter_ns()
+# best_greedy_plan, best_greedy_container_plan, best_greedy_distance = assign_tasks_greedy(AvailableTruckList, AwaitingTaskJob, G, containers)
+# greedy_end_time = time.perf_counter_ns()
+# greedy_runtime = greedy_end_time - greedy_start_time
+
+# print("\nBest Matching Plan (Greedy):", best_greedy_plan)
+# print("Best Container Plan (Greedy):", best_greedy_container_plan)
+# print("Minimum Total Distance (Greedy):", best_greedy_distance)
+# print("Greedy Algorithm Runtime: {} nanoseconds".format(greedy_runtime))
 
 
 # ############################### Genetic ####################################
@@ -107,15 +114,16 @@ print("Greedy Algorithm Runtime: {} nanoseconds".format(greedy_runtime))
 ############################### Simulated Annealing ####################################
 
 # Apply simulated annealing algorithm
-sa_start_time = time.perf_counter_ns()
-best_sa_plan, best_sa_container_plan, best_sa_distance = simulated_annealing(AvailableTruckList, AwaitingTaskJob, G, containers)
-sa_end_time = time.perf_counter_ns()
-sa_runtime = sa_end_time - sa_start_time
 
-print("\nBest Matching Plan (Simulated Annealing):", best_sa_plan)
-print("Best Container Plan (Simulated Annealing):", best_sa_container_plan)
-print("Minimum Total Distance (Simulated Annealing):", best_sa_distance)
-print("Simulated Annealing Algorithm Runtime: {} nanoseconds".format(sa_runtime))
+# sa_start_time = time.perf_counter_ns()
+# best_sa_plan, best_sa_container_plan, best_sa_distance = simulated_annealing(AvailableTruckList, AwaitingTaskJob, G, containers)
+# sa_end_time = time.perf_counter_ns()
+# sa_runtime = sa_end_time - sa_start_time
+
+# print("\nBest Matching Plan (Simulated Annealing):", best_sa_plan)
+# print("Best Container Plan (Simulated Annealing):", best_sa_container_plan)
+# print("Minimum Total Distance (Simulated Annealing):", best_sa_distance)
+# print("Simulated Annealing Algorithm Runtime: {} nanoseconds".format(sa_runtime))
 
 
 

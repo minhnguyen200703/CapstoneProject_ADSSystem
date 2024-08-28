@@ -2,8 +2,12 @@ import itertools
 import networkx as nx
 
 # Function to find the k nearest trucks to each taskjob
+import heapq  # For efficient selection of the top x nearest trucks
+
 def find_k_nearest_trucks(trucks, taskjobs, graph, containers):
     nearest_trucks = {}
+    x = min(len(trucks), len(taskjobs))
+
     for taskjob in taskjobs:
         distances_to_trucks = []
         for truck_id, truck_location in trucks.items():
@@ -31,8 +35,9 @@ def find_k_nearest_trucks(trucks, taskjobs, graph, containers):
                     distance = float('inf')
                 distances_to_trucks.append((truck_id, distance, None))
 
-        distances_to_trucks.sort(key=lambda x: x[1])
-        nearest_trucks[taskjob["TaskJobID"]] = distances_to_trucks
+        # Use a heap to find the top x nearest trucks
+        top_x_trucks = heapq.nsmallest(x, distances_to_trucks, key=lambda item: item[1])
+        nearest_trucks[taskjob["TaskJobID"]] = top_x_trucks
 
     return nearest_trucks
 
@@ -90,3 +95,4 @@ def find_best_matching_plan(trucks, taskjobs, graph, containers):
             best_container_plan = container_assignments
 
     return best_plan, best_container_plan, min_distance
+# 81870993100
