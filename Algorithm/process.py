@@ -54,7 +54,7 @@ print("AwaitingTaskJob:", AwaitingTaskJob)
 G = build_graph.build_graph(LocationList, Distances)
 
 # Visualize the graphs
-visualize_graphs(G, AvailableTruckList, AvailableContainerList, AwaitingTaskJob)
+# visualize_graphs(G, AvailableTruckList, AvailableContainerList, AwaitingTaskJob)
 
 ############################### Trivial Approach ####################################
 

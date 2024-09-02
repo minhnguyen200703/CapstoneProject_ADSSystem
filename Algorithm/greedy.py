@@ -1,5 +1,5 @@
 import networkx as nx
-
+from dijkstra import dijkstra  # Importing the custom Dijkstra function
 # Function to assign taskjobs to trucks using a greedy algorithm
 def assign_tasks_greedy(trucks, taskjobs, graph, containers):
     matching_plan = {}
@@ -25,19 +25,26 @@ def assign_tasks_greedy(trucks, taskjobs, graph, containers):
                         if container["isAvailable"] and container["ContNumber"] not in used_containers:
                             container_location = container["Location"]
                             try:
-                                distance = nx.dijkstra_path_length(graph, truck_location, container_location) + \
-                                           nx.dijkstra_path_length(graph, container_location, taskjob["Locations"][1])
+                                # Using custom dijkstra function
+                                distance_to_container = dijkstra(graph, truck_location, container_location)
+                                distance_container_to_taskjob = dijkstra(graph, container_location, taskjob["Locations"][1])
+                                distance = distance_to_container + distance_container_to_taskjob
+                                
                                 if distance < min_distance:
                                     min_distance = distance
                                     best_container = container["ContNumber"]
-                            except nx.NetworkXNoPath:
+                            except ValueError as e:
+                                print(e)
                                 continue
                     cost = min_distance
                 else:
                     try:
-                        cost = nx.dijkstra_path_length(graph, truck_location, taskjob["Locations"][0]) + \
-                               nx.dijkstra_path_length(graph, taskjob["Locations"][0], taskjob["Locations"][1])
-                    except nx.NetworkXNoPath:
+                        # Using custom dijkstra function
+                        distance_to_task_start = dijkstra(graph, truck_location, taskjob["Locations"][0])
+                        distance_task_start_to_end = dijkstra(graph, taskjob["Locations"][0], taskjob["Locations"][1])
+                        cost = distance_to_task_start + distance_task_start_to_end
+                    except ValueError as e:
+                        print(e)
                         cost = float('inf')
 
                 if cost < min_cost:
@@ -46,7 +53,7 @@ def assign_tasks_greedy(trucks, taskjobs, graph, containers):
 
         if best_assignment:
             truck_id, taskjob_id, container_id = best_assignment
-            matching_plan[truck_id] = taskjob_id
+            matching_plan[taskjob_id] = [truck_id, container_id] if container_id else truck_id
             total_distance += min_cost
             if container_id is not None:
                 container_assignments[taskjob_id] = container_id

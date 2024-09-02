@@ -1,9 +1,9 @@
 import itertools
+import heapq  # For efficient selection of the top x nearest trucks
 import networkx as nx
+from dijkstra import dijkstra  # Importing the custom Dijkstra function
 
 # Function to find the k nearest trucks to each taskjob
-import heapq  # For efficient selection of the top x nearest trucks
-
 def find_k_nearest_trucks(trucks, taskjobs, graph, containers):
     nearest_trucks = {}
     x = min(len(trucks), len(taskjobs))
@@ -19,19 +19,21 @@ def find_k_nearest_trucks(trucks, taskjobs, graph, containers):
                     if container["isAvailable"]:
                         container_location = container["Location"]
                         try:
-                            distance = nx.dijkstra_path_length(graph, truck_location, container_location) + \
-                                       nx.dijkstra_path_length(graph, container_location, taskjob["Locations"][1])
+                            # Using custom dijkstra function
+                            distance = dijkstra(graph, truck_location, container_location) + \
+                                       dijkstra(graph, container_location, taskjob["Locations"][1])
                             if distance < min_distance:
                                 min_distance = distance
                                 best_container = container["ContNumber"]
-                        except nx.NetworkXNoPath:
+                        except KeyError:  # Assuming dijkstra raises KeyError on no path
                             continue
                 distances_to_trucks.append((truck_id, min_distance, best_container))
             else:
                 try:
-                    distance = nx.dijkstra_path_length(graph, truck_location, taskjob["Locations"][0]) + \
-                               nx.dijkstra_path_length(graph, taskjob["Locations"][0], taskjob["Locations"][1])
-                except nx.NetworkXNoPath:
+                    # Using custom dijkstra function
+                    distance = dijkstra(graph, truck_location, taskjob["Locations"][0]) + \
+                               dijkstra(graph, taskjob["Locations"][0], taskjob["Locations"][1])
+                except KeyError:
                     distance = float('inf')
                 distances_to_trucks.append((truck_id, distance, None))
 
@@ -45,32 +47,42 @@ def find_k_nearest_trucks(trucks, taskjobs, graph, containers):
 def calculate_total_distance(plan, trucks, taskjobs, graph, containers):
     total_distance = 0
     container_assignments = {}
+    used_containers = set()  # Track used containers to ensure no duplication
+
     for truck_id, taskjob_id in plan.items():
         taskjob = next(tj for tj in taskjobs if tj["TaskJobID"] == taskjob_id)
         truck_location = trucks[truck_id]
 
         if taskjob["TaskJobType"] == "Book_1":
-            container_locations = [container["Location"] for container in containers if container["isAvailable"]]
+            container_locations = [container for container in containers if container["isAvailable"] and container["ContNumber"] not in used_containers]
             min_distance = float('inf')
             best_container = None
-            for container_location in container_locations:
+            for container in container_locations:
+                container_location = container["Location"]
                 try:
-                    distance = nx.dijkstra_path_length(graph, truck_location, container_location) + \
-                               nx.dijkstra_path_length(graph, container_location, taskjob["Locations"][1])
+                    # Using custom dijkstra function
+                    distance = dijkstra(graph, truck_location, container_location) + \
+                               dijkstra(graph, container_location, taskjob["Locations"][1])
                     if distance < min_distance:
                         min_distance = distance
-                        best_container = next(container["ContNumber"] for container in containers if container["Location"] == container_location)
-                except nx.NetworkXNoPath:
+                        best_container = container["ContNumber"]
+                except KeyError:
                     continue
-            total_distance += min_distance
-            container_assignments[taskjob_id] = best_container
+            if best_container:  # If a valid container is found
+                total_distance += min_distance
+                container_assignments[taskjob_id] = [truck_id, best_container]
+                used_containers.add(best_container)  # Mark container as used
+            else:
+                total_distance = float('inf')  # If no valid container found, make this plan invalid
         else:
             try:
-                distance = nx.dijkstra_path_length(graph, truck_location, taskjob["Locations"][0]) + \
-                           nx.dijkstra_path_length(graph, taskjob["Locations"][0], taskjob["Locations"][1])
-            except nx.NetworkXNoPath:
+                # Using custom dijkstra function
+                distance = dijkstra(graph, truck_location, taskjob["Locations"][0]) + \
+                           dijkstra(graph, taskjob["Locations"][0], taskjob["Locations"][1])
+            except KeyError:
                 distance = float('inf')
             total_distance += distance
+            container_assignments[taskjob_id] = truck_id  # Direct assignment if no container needed
 
     return total_distance, container_assignments
 
@@ -95,4 +107,3 @@ def find_best_matching_plan(trucks, taskjobs, graph, containers):
             best_container_plan = container_assignments
 
     return best_plan, best_container_plan, min_distance
-# 81870993100
