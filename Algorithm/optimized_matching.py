@@ -1,7 +1,7 @@
 import itertools
 import heapq  # For efficient selection of the top x nearest trucks
 import networkx as nx
-from dijkstra import dijkstra  # Importing the custom Dijkstra function
+from dijkstra import dijkstra_with_intermediate  # Importing the custom Dijkstra function
 
 # Function to find the k nearest trucks to each taskjob
 def find_k_nearest_trucks(trucks, taskjobs, graph, containers):
@@ -19,20 +19,18 @@ def find_k_nearest_trucks(trucks, taskjobs, graph, containers):
                     if container["isAvailable"]:
                         container_location = container["Location"]
                         try:
-                            # Using custom dijkstra function
-                            distance = dijkstra(graph, truck_location, container_location) + \
-                                       dijkstra(graph, container_location, taskjob["Locations"][1])
+                            # Using custom dijkstra_with_intermediate function
+                            distance = dijkstra_with_intermediate(graph, truck_location, container_location, taskjob["Locations"][1])
                             if distance < min_distance:
                                 min_distance = distance
                                 best_container = container["ContNumber"]
-                        except KeyError:  # Assuming dijkstra raises KeyError on no path
+                        except KeyError:  # Assuming dijkstra_with_intermediate raises KeyError on no path
                             continue
                 distances_to_trucks.append((truck_id, min_distance, best_container))
             else:
                 try:
-                    # Using custom dijkstra function
-                    distance = dijkstra(graph, truck_location, taskjob["Locations"][0]) + \
-                               dijkstra(graph, taskjob["Locations"][0], taskjob["Locations"][1])
+                    # Using custom dijkstra_with_intermediate function
+                    distance = dijkstra_with_intermediate(graph, truck_location, taskjob["Locations"][0], taskjob["Locations"][1])
                 except KeyError:
                     distance = float('inf')
                 distances_to_trucks.append((truck_id, distance, None))
@@ -60,9 +58,8 @@ def calculate_total_distance(plan, trucks, taskjobs, graph, containers):
             for container in container_locations:
                 container_location = container["Location"]
                 try:
-                    # Using custom dijkstra function
-                    distance = dijkstra(graph, truck_location, container_location) + \
-                               dijkstra(graph, container_location, taskjob["Locations"][1])
+                    # Using custom dijkstra_with_intermediate function
+                    distance = dijkstra_with_intermediate(graph, truck_location, container_location, taskjob["Locations"][1])
                     if distance < min_distance:
                         min_distance = distance
                         best_container = container["ContNumber"]
@@ -76,9 +73,8 @@ def calculate_total_distance(plan, trucks, taskjobs, graph, containers):
                 total_distance = float('inf')  # If no valid container found, make this plan invalid
         else:
             try:
-                # Using custom dijkstra function
-                distance = dijkstra(graph, truck_location, taskjob["Locations"][0]) + \
-                           dijkstra(graph, taskjob["Locations"][0], taskjob["Locations"][1])
+                # Using custom dijkstra_with_intermediate function
+                distance = dijkstra_with_intermediate(graph, truck_location, taskjob["Locations"][0], taskjob["Locations"][1])
             except KeyError:
                 distance = float('inf')
             total_distance += distance
