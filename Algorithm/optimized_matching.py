@@ -1,105 +1,154 @@
-import itertools
-import heapq  # For efficient selection of the top x nearest trucks
-import networkx as nx
-from dijkstra import dijkstra_with_intermediate  # Importing the custom Dijkstra function
+import heapq
+from dijkstra import dijkstra_with_intermediate
+from dijkstra import dijkstra
 
-# Function to find the k nearest trucks to each taskjob
-def find_k_nearest_trucks(trucks, taskjobs, graph, containers):
-    nearest_trucks = {}
-    x = min(len(trucks), len(taskjobs))
+# Function to find the k nearest trucks or truck-container pairs for each taskjob
+def find_k_nearest_trucks_containers(trucks, containers, taskjobs, graph):
+    nearest_trucks_containers = {}
+    k = min(len(trucks), len(taskjobs))
 
     for taskjob in taskjobs:
-        distances_to_trucks = []
-        for truck_id, truck_location in trucks.items():
-            if taskjob["TaskJobType"] == "Book_1":
-                # Find nearest truck and container pair
-                min_distance = float('inf')
-                best_container = None
+        distances_to_vehicles = []
+        task_start = taskjob["Locations"][0]
+        
+        if taskjob["TaskJobType"] == "Book_1":
+            # Task requires both truck and container, and container location should replace None in Locations[0]
+            for truck_id, truck_location in trucks.items():
                 for container in containers:
                     if container["isAvailable"]:
                         container_location = container["Location"]
-                        try:
-                            # Using custom dijkstra_with_intermediate function
-                            distance = dijkstra_with_intermediate(graph, truck_location, container_location, taskjob["Locations"][1])
-                            if distance < min_distance:
-                                min_distance = distance
-                                best_container = container["ContNumber"]
-                        except KeyError:  # Assuming dijkstra_with_intermediate raises KeyError on no path
+
+                        # Ensure the truck, container, and task start location are valid nodes
+                        if truck_location not in graph.nodes or container_location not in graph.nodes or taskjob["Locations"][1] not in graph.nodes:
+                            print(f"Skipping truck {truck_id} or container {container['ContNumber']} due to invalid node in the graph")
                             continue
-                distances_to_trucks.append((truck_id, min_distance, best_container))
-            else:
+
+                        try:
+                            # Calculate the distance: truck -> container -> task start (Locations[1])
+                            distance = dijkstra_with_intermediate(graph, truck_location, container_location, taskjob["Locations"][1])
+                            if distance is None:
+                                distance = float('inf')  # Handle missing distances
+                            distances_to_vehicles.append((truck_id, distance, container["ContNumber"]))
+                        except KeyError:
+                            print(f"KeyError in finding distance for truck {truck_id} and container {container['ContNumber']}")
+                            continue
+        else:
+            # Task only requires a truck
+            for truck_id, truck_location in trucks.items():
+                if truck_location not in graph.nodes or task_start not in graph.nodes or taskjob["Locations"][1] not in graph.nodes:
+                    print(f"Skipping truck {truck_id} due to invalid node in the graph")
+                    continue
+                
                 try:
-                    # Using custom dijkstra_with_intermediate function
-                    distance = dijkstra_with_intermediate(graph, truck_location, taskjob["Locations"][0], taskjob["Locations"][1])
+                    # Calculate the distance: truck -> task start -> task end
+                    distance = dijkstra_with_intermediate(graph, truck_location, task_start, taskjob["Locations"][1])
+                    if distance is None:
+                        distance = float('inf')  # Handle missing distances
+                    distances_to_vehicles.append((truck_id, distance, None))
                 except KeyError:
-                    distance = float('inf')
-                distances_to_trucks.append((truck_id, distance, None))
+                    print(f"KeyError in finding distance for truck {truck_id}")
+                    continue
 
-        # Use a heap to find the top x nearest trucks
-        top_x_trucks = heapq.nsmallest(x, distances_to_trucks, key=lambda item: item[1])
-        nearest_trucks[taskjob["TaskJobID"]] = top_x_trucks
+        if distances_to_vehicles:
+            # Use a heap to find the top k nearest trucks or truck-container pairs
+            top_k_vehicles = heapq.nsmallest(k, distances_to_vehicles, key=lambda item: item[1])
+            nearest_trucks_containers[taskjob["TaskJobID"]] = top_k_vehicles
+        else:
+            print(f"No valid trucks/containers found for task job {taskjob['TaskJobID']}")
 
-    return nearest_trucks
+    return nearest_trucks_containers
 
-# Function to calculate the total distance for a given matching plan
-def calculate_total_distance(plan, trucks, taskjobs, graph, containers):
+# Function to calculate the total distance for a given plan
+def calculate_total_plan_distance(plan, trucks, taskjobs, graph, containers):
     total_distance = 0
     container_assignments = {}
-    used_containers = set()  # Track used containers to ensure no duplication
 
-    for truck_id, taskjob_id in plan.items():
+    for taskjob_id, (truck_id, container_id) in plan.items():
         taskjob = next(tj for tj in taskjobs if tj["TaskJobID"] == taskjob_id)
         truck_location = trucks[truck_id]
-
-        if taskjob["TaskJobType"] == "Book_1":
-            container_locations = [container for container in containers if container["isAvailable"] and container["ContNumber"] not in used_containers]
-            min_distance = float('inf')
-            best_container = None
-            for container in container_locations:
-                container_location = container["Location"]
-                try:
-                    # Using custom dijkstra_with_intermediate function
-                    distance = dijkstra_with_intermediate(graph, truck_location, container_location, taskjob["Locations"][1])
-                    if distance < min_distance:
-                        min_distance = distance
-                        best_container = container["ContNumber"]
-                except KeyError:
-                    continue
-            if best_container:  # If a valid container is found
-                total_distance += min_distance
-                container_assignments[taskjob_id] = [truck_id, best_container]
-                used_containers.add(best_container)  # Mark container as used
-            else:
-                total_distance = float('inf')  # If no valid container found, make this plan invalid
-        else:
-            try:
-                # Using custom dijkstra_with_intermediate function
-                distance = dijkstra_with_intermediate(graph, truck_location, taskjob["Locations"][0], taskjob["Locations"][1])
-            except KeyError:
-                distance = float('inf')
+        
+        if taskjob["TaskJobType"] == "Book_1" and container_id:
+            container_location = containers[container_id]["Location"]
+            # Calculate distance: truck -> container -> task start (Locations[1]) -> task end (Locations[1])
+            distance = dijkstra_with_intermediate(graph, truck_location, container_location, taskjob["Locations"][1])
             total_distance += distance
-            container_assignments[taskjob_id] = truck_id  # Direct assignment if no container needed
+            container_assignments[taskjob_id] = container_id  # Track container assignment
+            print(f"TaskJobID {taskjob_id} assigned ContainerID {container_id} with total distance {distance}")
+        else:
+            # Calculate distance: truck -> task start -> task end
+            distance = dijkstra_with_intermediate(graph, truck_location, taskjob["Locations"][0], taskjob["Locations"][1])
+            total_distance += distance
 
     return total_distance, container_assignments
 
-# Function to find the best matching plan
-def find_best_matching_plan(trucks, taskjobs, graph, containers):
-    nearest_trucks = find_k_nearest_trucks(trucks, taskjobs, graph, containers)
+# Main function to find the optimal matching plan
+def find_optimal_plan(trucks, containers, taskjobs, graph):
+    valid_taskjobs = []
+    for taskjob in taskjobs:
+        # Only skip if it's not Book_1, because None in Book_1 means we need the container location
+        if taskjob["TaskJobType"] != "Book_1" and taskjob["Locations"][0] is None:
+            print(f"Skipping task job {taskjob['TaskJobID']} due to missing start location")
+            continue
+        valid_taskjobs.append(taskjob)
 
-    taskjob_ids = list(nearest_trucks.keys())
-    truck_ids = list(trucks.keys())
+    if not valid_taskjobs:
+        print("No valid task jobs found.")
+        return None, None, float('inf')
 
+    nearest_trucks_containers = find_k_nearest_trucks_containers(trucks, containers, valid_taskjobs, graph)
+
+    all_potential_plans = find_all_potential_plans(nearest_trucks_containers, valid_taskjobs, trucks, containers, graph)
+
+    if not all_potential_plans:
+        print("No potential plans found.")
+        return None, None, float('inf')
+
+    min_distance = float('inf')
     best_plan = None
     best_container_plan = None
-    min_distance = float('inf')
 
-    # Generate all possible matching plans
-    for perm in itertools.permutations(truck_ids, len(taskjob_ids)):
-        plan = dict(zip(perm, taskjob_ids))
-        total_distance, container_assignments = calculate_total_distance(plan, trucks, taskjobs, graph, containers)
+    for plan in all_potential_plans:
+        total_distance, container_plan = calculate_total_plan_distance(plan, trucks, valid_taskjobs, graph, containers)
         if total_distance < min_distance:
             min_distance = total_distance
             best_plan = plan
-            best_container_plan = container_assignments
+            best_container_plan = container_plan
 
     return best_plan, best_container_plan, min_distance
+
+# Function to check and resolve any assignment conflicts using a binary tree approach
+def find_all_potential_plans(nearest_trucks_containers, taskjobs, trucks, containers, graph):
+    # Recursive function to explore all combinations of task job assignments
+    def branch(node, taskjob_ids, current_assignments):
+        # If all task jobs are assigned, return the current valid assignments
+        if len(node) == len(taskjob_ids):
+            return [current_assignments]
+
+        # Get the next task job to process
+        current_taskjob = taskjob_ids[len(node)]
+        # Get the best available options for that task job
+        best_options = nearest_trucks_containers[current_taskjob]
+
+        result = []
+        # Try each option (truck and container) for the current task job
+        for idx, (truck_id, _, container_id) in enumerate(best_options):
+            # Check if the truck or container is already assigned
+            if truck_id in [v[0] for v in current_assignments.values()] or \
+               (container_id and container_id in [v[1] for v in current_assignments.values()]):
+                # Skip if the truck or container is already used
+                continue
+            # Make a copy of current assignments and add the new assignment
+            new_assignments = current_assignments.copy()
+            new_assignments[current_taskjob] = (truck_id, container_id)
+            # Branch to the next task job
+            result.extend(branch(node + [idx], taskjob_ids, new_assignments))
+
+        return result
+
+    # Get the list of task job IDs to process
+    taskjob_ids = list(nearest_trucks_containers.keys())
+    # Start branching to resolve conflicts and find valid assignment plans
+    all_potential_plans = branch([], taskjob_ids, {})
+    return all_potential_plans
+
+

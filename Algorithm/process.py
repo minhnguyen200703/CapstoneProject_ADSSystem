@@ -9,11 +9,10 @@ from trivial import trivial_approach
 from greedy import assign_tasks_greedy
 from genetic import genetic_algorithm
 from simulated_annealing import simulated_annealing
-from optimized_matching import find_best_matching_plan
+from optimized_matching import find_optimal_plan
 from brute_force import brute_force
 from visualization import visualize_graphs  # Import the visualization functions
-
-
+from test import brute_force_check
 
 # # Open and parse JSON files
 # with open('..\\Data\\trucks.json') as f_Truck, \
@@ -130,7 +129,7 @@ G = build_graph.build_graph(LocationList, Distances)
 ############################### Optimized ####################################
 # Apply optimized matching algorithm
 opt_start_time = time.perf_counter_ns()
-best_opt_plan, best_container_plan, best_opt_distance = find_best_matching_plan(AvailableTruckList, AwaitingTaskJob, G, containers)
+best_opt_plan, best_container_plan, best_opt_distance = find_optimal_plan(AvailableTruckList,containers, AwaitingTaskJob, G )
 opt_end_time = time.perf_counter_ns()
 opt_runtime = opt_end_time - opt_start_time
 
@@ -138,3 +137,12 @@ print("\nBest Matching Plan (Optimized):", best_opt_plan)
 print("Best Container Plan (Optimized):", best_container_plan)
 print("Minimum Total Distance (Optimized):", best_opt_distance)
 print("Optimized Matching Algorithm Runtime: {} nanoseconds".format(opt_runtime))
+
+
+
+
+
+
+
+# Assuming your trucks, containers, taskjobs, and graph are already defined
+brute_force_check(AvailableTruckList, AvailableContainerList, AwaitingTaskJob, G)
